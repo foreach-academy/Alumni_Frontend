@@ -2,20 +2,22 @@ import '../Styles/NavBar.css'
 
 const NavBar = () => {
     return ( 
-       
+       <>
         <div className='navbar_block'>
-           
-                <p>X</p>
-                <p className='navigation_navbar'>Annuaire</p>
-                <p className='navigation_navbar'>Offres/Emploi</p>
-                <p className='navigation_navbar'>Evenements</p>
-                <p className='navigation_navbar'>Contacts</p>
-                <p className='navigation_navbar'>A propros</p>
-                <div>
-                <p className='navigation_navbar'>Profil</p>
-                <p className='navigation_navbar'>Espace connexion</p>
-                </div>
+
+            <p>LOGO</p>
+            <p className='navigation_navbar'>ANNUAIRE</p>
+            <p className='navigation_navbar'>OFFRES STAGE/EMPLOI</p>
+            <p className='navigation_navbar'>EVENEMENTS</p>
+            <p className='navigation_navbar'>CONTACTS</p>
+            <p className='navigation_navbar'>A PROPROS</p>
+            <div>
+                <p className='navigation_navbar'>PROFIL</p>
+                <p className='navigation_navbar'>ESPACE CONNEXION</p>
+            </div>
         </div>
+                
+        </>
     )
 }
 
