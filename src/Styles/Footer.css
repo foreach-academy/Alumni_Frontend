@@ -18,3 +18,12 @@
     filter: invert(100%);
 }
 
+.icon_reseaux_footer:hover{
+    cursor: pointer;
+    filter: invert(75%);
+}
+
+.navigation_footer:hover{
+    cursor: pointer;
+    filter: brightness(75%);
+}
