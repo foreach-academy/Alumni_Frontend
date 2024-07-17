@@ -11,3 +11,10 @@
     
 
 }
+
+.icon_reseaux_footer{
+    max-width: 30px;
+    padding: 10px;
+    filter: invert(100%);
+}
+
