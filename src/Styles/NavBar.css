@@ -1,0 +1,7 @@
+.navbar_block{
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    line-height: 40%;
+    margin-top: 20px;
+}
