@@ -1,7 +1,17 @@
+@font-face {
+    font-family: poppins-regular;
+    src: url(../Assets/Poppins-Regular.ttf);
+  }
+  
 .navbar_block{
     display: flex;
     justify-content: space-around;
     align-items: end;
     line-height: 40%;
-    margin-top: 20px;
+    background-color:rgb(42, 45, 67);
+    padding-top: 10px;
+    padding-bottom: 20px;
+    color: white ;
+    font-family: poppins-regular;
 }
+
