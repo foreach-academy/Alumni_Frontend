@@ -6,14 +6,14 @@ const NavBar = () => {
         <div className='navbar_block'>
            
                 <p>X</p>
-                <p>Annuaire</p>
-                <p>Offres/Emploi</p>
-                <p>Evenements</p>
-                <p>Contacts</p>
-                <p>A propros</p>
+                <p className='navigation_navbar'>Annuaire</p>
+                <p className='navigation_navbar'>Offres/Emploi</p>
+                <p className='navigation_navbar'>Evenements</p>
+                <p className='navigation_navbar'>Contacts</p>
+                <p className='navigation_navbar'>A propros</p>
                 <div>
-                <p>Profil</p>
-                <p>Espace connexion</p>
+                <p className='navigation_navbar'>Profil</p>
+                <p className='navigation_navbar'>Espace connexion</p>
                 </div>
         </div>
     )
