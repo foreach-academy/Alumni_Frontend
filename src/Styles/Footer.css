@@ -1,15 +1,16 @@
+
 .footer_block {
     display: flex;
     justify-content: space-around;
-    align-items: end;
     line-height: 40%;
     background-color:rgb(42, 45, 67);
-    padding-top: 10px;
-    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 10px;
     color:rgb(255, 255, 255) ;
     font-family: poppins-regular;
-    
-
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .icon_reseaux_footer{
