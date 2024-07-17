@@ -1,0 +1,13 @@
+.footer_block {
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    line-height: 40%;
+    background-color:rgb(42, 45, 67);
+    padding-top: 10px;
+    padding-bottom: 20px;
+    color:rgb(255, 255, 255) ;
+    font-family: poppins-regular;
+    
+
+}
