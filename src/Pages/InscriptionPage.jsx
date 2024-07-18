@@ -9,10 +9,10 @@ return <>
     <div className="titre_contenu">
         <h3>Vous êtes :</h3>
     </div>
-    <div className="">
-        <a href=""><p>Entreprise</p></a>
-        <a href=""><p>Apprenant</p></a>
-        <a href=""><p>Formateur</p></a>
+    <div className="categorie_inscription">
+        <a href="" className="lien_categorie"><p className="categorie_entreprise">Entreprise</p></a>
+        <a href="" className="lien_categorie"><p className="categorie_apprenant">Apprenant</p></a>
+        <a href="" className="lien_categorie"><p className="categorie_formateur">Formateur</p></a>
     </div>
     <Footer/>
     </>

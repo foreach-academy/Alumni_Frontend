@@ -4,3 +4,24 @@
     left: 45%;
     font-size: 30px;
 }
+
+.categorie_inscription{
+    position: absolute;
+    top: 35%;
+    left: 45%;
+    text-decoration: none;
+
+}
+
+.lien_categorie{
+    text-decoration: none;
+    color: black;
+}
+
+.categorie_entreprise{
+    background-color: rgb(247, 148, 29);
+    padding: 10px 30px 10px 30px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 25px;
+}
