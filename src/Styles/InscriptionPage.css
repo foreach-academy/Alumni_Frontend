@@ -1,3 +1,8 @@
+body{
+    background-image: url("../Assets/fond_carre.png");
+    background-repeat: repeat;
+}
+
 .logo_alumni_page_inscription{
     position: absolute;
     top: 25%;
