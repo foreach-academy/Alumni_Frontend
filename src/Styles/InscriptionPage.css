@@ -1,13 +1,20 @@
+.logo_alumni_page_inscription{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    
+}
+
 .titre_contenu{
     position: absolute;
-    top: 20%;
+    top: 30%;
     left: 45%;
     font-size: 30px;
 }
 
 .categorie_inscription{
     position: absolute;
-    top: 35%;
+    top: 40%;
     left: 40%;
     text-decoration: none;
 
