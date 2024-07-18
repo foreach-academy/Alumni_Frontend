@@ -9,6 +9,7 @@ function App() {
   <NavBar/>
   <Routes>
     <Route path='/'/>
+    <Route path='/inscription'/>
   </Routes>
   <Footer/>
   </BrowserRouter>
