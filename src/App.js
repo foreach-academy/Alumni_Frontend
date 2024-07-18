@@ -7,7 +7,7 @@ import InscriptionPage from './Pages/InscriptionPage';
 function App() {
   return<>
   <BrowserRouter>
-  {/* <NavBar/> */}
+  <NavBar/>
   <Routes>
     <Route path='/'/>
     <Route path='/inscription' element={<InscriptionPage/>}/>
