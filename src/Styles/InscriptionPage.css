@@ -38,6 +38,10 @@ body{
     color: black;
 }
 
+.lien_categorie:hover{
+    filter: brightness(75%);
+}
+
 .categorie_entreprise{
     background-color: rgb(247, 148, 29);
     padding: 10px 30px 10px 30px;
