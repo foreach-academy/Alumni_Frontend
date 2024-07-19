@@ -8,7 +8,6 @@ function App() {
   return<>
   <BrowserRouter>
   <Routes>
-    <NavBar/>
     <Route path='/'/>
     <Route path='/inscription' element={<InscriptionPage/>}/>
   </Routes>
