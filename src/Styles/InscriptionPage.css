@@ -1,22 +1,20 @@
+
 body{
     background-image: url("../Assets/fond_carre.png");
     background-repeat: repeat;
+    font-family: poppins-regular;
 }
 .logo_foreach_page_inscription{
-    width: 400px;
+    width: 380px;
+    background-color: white;
+    padding-right: 34px;
 }
 
 .content_logo_page_inscription{
-    display: flex;
-    justify-content: center;
-    margin: 50px;
+  display: flex;
+  justify-content: center;
 }
-.logo_alumni_page_inscription{
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    
-}
+
 
 .titre_contenu{
     position: absolute;
