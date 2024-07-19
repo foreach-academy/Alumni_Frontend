@@ -15,7 +15,7 @@ const Footer = () => {
                 <p className='navigation_footer'>Mentions légales</p>
                 <p className='navigation_footer'>Confidentialité des données</p>
                 <div>
-                <p className='navigation_footer'>393 Rue du Général de Gaulle,</p>
+                <p className='navigation_footer'>393 Rue du Général de Gaulle</p>
                 <p className='navigation_footer'>59700 Marcq-en-Baroeul</p>
                 </div>
         </div>
