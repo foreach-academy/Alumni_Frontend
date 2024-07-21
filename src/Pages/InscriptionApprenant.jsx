@@ -2,9 +2,10 @@ import Footer from "../Components/Footer"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import instance from "../API/axios";
+import ("../Styles/InscriptionApprenantPage.css");
 
-const { useState } = require ("react");
-const { useNavigate } = require ("react-router-dom")
+// const { useState } = require ("react");
+// const { useNavigate } = require ("react-router-dom")
 
 const InscriptionApprenant = () => {
 
@@ -37,8 +38,8 @@ const InscriptionApprenant = () => {
 
 
 return <>
-    <div className="content_logo_page_inscription">
-        <img src={require("../Assets/logo_foreach_couleur_horizontal.png")} alt="logo_foreach" className="logo_foreach_page_inscription" />
+    <div className="content_logo_page_inscription_apprenant">
+        <img src={require("../Assets/logo_foreach_couleur_horizontal.png")} alt="logo_foreach" className="logo_foreach_page_inscription_apprenant" />
     </div>
     <div className="block_inscription_apprenant">
         <input type="email" name="email" defaultValue={email} placeholder="email" onChange={(e) => {setEmail(e.target.value)}} className="input_inscription_apprenant"/>
