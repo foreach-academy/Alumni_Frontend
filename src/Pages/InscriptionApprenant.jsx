@@ -1,6 +1,7 @@
 import Footer from "../Components/Footer"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import instance from "../API/axios";
 
 const { useState } = require ("react");
 const { useNavigate } = require ("react-router-dom")
