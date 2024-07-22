@@ -3,8 +3,10 @@ import './App.css';
 import NavBar from './Components/NavBar';
 import Footer from './Components/Footer';
 import InscriptionPage from './Pages/InscriptionPage';
-import InscriptionEntreprise from './Pages/InscriptionEntreprisePage';
 
+import InscriptionEntreprise from './Pages/InscriptionEntreprisePage';
+=======
+import InscriptionApprenant from './Pages/InscriptionApprenant';
 function App() {
   return<>
   <BrowserRouter>
@@ -12,6 +14,7 @@ function App() {
     <Route path='/'/>
     <Route path='/inscription' element={<InscriptionPage/>}/>
     <Route path='/inscription_entreprise' element={<InscriptionEntreprise/>}/>
+    <Route path='/inscription_apprenant' element={<InscriptionApprenant/>}/>
   </Routes>
   <Footer/>
   </BrowserRouter>
