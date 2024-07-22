@@ -3,6 +3,7 @@ import './App.css';
 import NavBar from './Components/NavBar';
 import Footer from './Components/Footer';
 import InscriptionPage from './Pages/InscriptionPage';
+import InscriptionEntreprise from './Pages/InscriptionEntreprisePage';
 
 function App() {
   return<>
@@ -10,6 +11,7 @@ function App() {
   <Routes>
     <Route path='/'/>
     <Route path='/inscription' element={<InscriptionPage/>}/>
+    <Route path='/inscription_entreprise' element={<InscriptionEntreprise/>}/>
   </Routes>
   <Footer/>
   </BrowserRouter>
