@@ -1,3 +1,9 @@
+.page_inscription_apprenant{
+    background-image: url("../Assets/fond_carre_seagreen.png");
+    background-repeat: repeat;
+    font-family: poppins-regular;
+}
+
 .logo_foreach_page_inscription_apprenant{
     width: 380px;
     background-color: white;
@@ -17,7 +23,7 @@
 }
 
 .input_inscription_apprenant{
-    padding-right: 100px;
+    padding-right: 120px;
     padding-left: 5px;
     padding-top: 10px;
     padding-bottom: 10px;
