@@ -2,10 +2,9 @@ import Footer from "../Components/Footer"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import instance from "../API/axios";
-import ("../Styles/InscriptionApprenantPage.css");
+import { validEmail, validMdp } from '../Regex';
+import "../Styles/InscriptionApprenantPage.css";
 
-// const { useState } = require ("react");
-// const { useNavigate } = require ("react-router-dom")
 
 const InscriptionApprenant = () => {
 
@@ -16,6 +15,18 @@ const InscriptionApprenant = () => {
     const [prenom, setPrenom] = useState("");
     const [formation, setFormation] = useState("");
     const [promotion, setPromotion] = useState("");
+
+    const [emailError, setEmailError] = useState(false);
+    const [mdpError, setMdpError] = useState(false);
+    
+    const validate = () => {
+            if (!validEmail.test(email)) {
+              setEmailError(true);
+           }
+           if (!validMdp.test(mdp)) {
+              setMdpError(true);
+           }
+        };
 
     const inscription = () => {
         instance.post('/auth/inscription_apprenant', {
@@ -50,7 +61,11 @@ return <>
 
         <input type="text" name="formation" defaultValue={formation} placeholder="Formation" onChange={(e) => {setFormation(e.target.value)}} className="input_inscription_apprenant"/>
         <input type="text" name="promotion" defaultValue={promotion} placeholder="Promotion" onChange={(e) => {setPromotion(e.target.value)}}className="input_inscription_apprenant"/>
-        <button onClick={() => {inscription()}} className="boutton_inscription_apprenant">Valider</button>
+        <div>
+            <button onClick={validate} className="boutton_inscription_apprenant" >Validate</button>
+         </div>
+         {emailError && <p>Votre email est invalide</p>}
+         {mdpError && <p>Votre mot de passe est invalide</p>}
     </div>
 </body>
     <Footer/>
