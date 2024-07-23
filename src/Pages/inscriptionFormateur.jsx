@@ -29,10 +29,8 @@ const InscriptionFormateur = () => {
         instance.post('/auth/inscription_formateur', {
             ut_email : email,
             ut_motdepasse : mdp,
-            en_nom_contact : nom,
-            en_prenom_contact : prenom,
-            en_nom : formateur,
-            en_fonction_contact : fonction,
+            pr_nom : nom,
+            pr_prenom: prenom,
 
         })
         .then(function(response){
