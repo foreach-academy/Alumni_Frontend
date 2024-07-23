@@ -2,10 +2,8 @@ import Footer from "../Components/Footer"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import instance from "../API/axios";
-import ("../Styles/InscriptionEntreprisePage.css");
-
-// const { useState } = require ("react");
-// const { useNavigate } = require ("react-router-dom")
+import { validEmail, validMdp } from '../Regex';
+import "../Styles/InscriptionEntreprisePage.css";
 
 const InscriptionEntreprise = () => {
 
@@ -16,6 +14,19 @@ const InscriptionEntreprise = () => {
     const [prenom, setPrenom] = useState("");
     const [entreprise, setEntreprise] = useState("");
     const [fonction, setFonction] = useState("");
+
+    const [emailError, setEmailError] = useState(false);
+    const [mdpError, setMdpError] = useState(false);
+    
+    const validate = () => {
+            if (!validEmail.test(email)) {
+              setEmailError(true);
+           }
+           if (!validMdp.test(mdp)) {
+              setMdpError(true);
+           }
+        };
+
 
     const inscription = () => {
         instance.post('/auth/inscription_entreprise', {
@@ -50,7 +61,11 @@ return <>
 
         <input type="text" name="formation" defaultValue={entreprise} placeholder="Nom de l'entreprise" onChange={(e) => {setEntreprise(e.target.value)}} className="input_inscription_entreprise"/>
         <input type="text" name="promotion" defaultValue={fonction} placeholder="Fonction dans l'entreprise" onChange={(e) => {setFonction(e.target.value)}}className="input_inscription_entreprise"/>
-        <button onClick={() => {inscription()}} className="boutton_inscription_entreprise">Valider</button>
+        <div>
+            <button onClick={validate} className="boutton_inscription_entreprise" >Validate</button>
+         </div>
+         {emailError && <p>Votre email est invalide</p>}
+         {mdpError && <p>Votre mot de passe est invalide</p>}
     </div>
 </body>
     <Footer/>
