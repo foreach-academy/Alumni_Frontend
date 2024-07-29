@@ -29,8 +29,10 @@ const InscriptionFormateur = () => {
         instance.post('/auth/inscription_formateur', {
             ut_email : email,
             ut_motdepasse : mdp,
-            pr_nom : nom,
-            pr_prenom: prenom,
+            en_nom_contact : nom,
+            en_prenom_contact : prenom,
+            en_nom : formateur,
+            en_fonction_contact : fonction,
 
         })
         .then(function(response){
@@ -54,10 +56,6 @@ return <>
         <input type="text" name="nom" defaultValue={nom} placeholder="Nom" onChange={(e) => {setNom(e.target.value)}} className="input_inscription_formateur"/>
         <input type="text" name="prenom" defaultValue={prenom} placeholder="Prenom" onChange={(e) => {setPrenom(e.target.value)}}className="input_inscription_formateur" />
         <div>
-        <div className="case_a_cocher_inscription_apprenant">
-                <input type="checkbox" required/>
-                <label for="valider_inscription">En m'inscrivant, j'accepte que les données renseignées soient utilisées par l'équipe de ForEach Academy.</label>
-        </div>
             <button onClick={validate} className="boutton_inscription_formateur" >Validate</button>
          </div>
          {emailError && <p>Votre email est invalide</p>}
