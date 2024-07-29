@@ -33,6 +33,18 @@
     background-color: rgb(219, 219, 219);
 }
 
+
+.case_a_cocher_inscription_formateur{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.block_boutton_inscription_formateur{
+    display: flex;
+    justify-content: center;
+}
+
 .boutton_inscription_formateur{
     padding: 10px 50px;
     border-radius: 7px;
