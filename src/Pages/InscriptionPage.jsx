@@ -12,9 +12,9 @@ return <>
         <h3>Vous êtes :</h3>
     </div>
     <div className="categorie_inscription">
-        <a href="" className="lien_categorie"><p className="categorie_entreprise">Entreprise</p></a>
-        <a href="" className="lien_categorie"><p className="categorie_apprenant">Apprenant</p></a>
-        <a href="" className="lien_categorie"><p className="categorie_formateur">Formateur</p></a>
+        <a href="/inscription_entreprise" className="lien_categorie"><p className="categorie_entreprise">Entreprise</p></a>
+        <a href="/inscription_apprenant" className="lien_categorie"><p className="categorie_apprenant">Apprenant</p></a>
+        <a href="/inscription_formateur" className="lien_categorie"><p className="categorie_formateur">Formateur</p></a>
     </div>
     <Footer/>
     </>

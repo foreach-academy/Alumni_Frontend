@@ -1,0 +1,79 @@
+.page_inscription_apprenant{
+    background-image: url("../Assets/fond_carre_seagreen.png");
+    background-repeat: repeat;
+    font-family: poppins-regular;
+}
+
+.logo_foreach_page_inscription_apprenant{
+    width: 380px;
+    background-color: white;
+    padding-right: 34px;
+}
+
+.content_logo_page_inscription_apprenant{
+    display: flex;
+    justify-content: center;
+  }
+
+.block_inscription_apprenant{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.premiere_partie_input{
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+}
+
+.deuxieme_partie_input{
+    display: flex;
+    flex-direction: column;
+}
+
+.input_inscription_apprenant{
+    padding-right: 100px;
+    padding-left: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    border-radius: 7px;
+    border: 2px solid black;
+    background-color: rgb(219, 219, 219);
+}
+
+
+.case_a_cocher_en_formation{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.case_a_cocher_inscription_apprenant{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.block_boutton_inscription_apprenant{
+    display: flex;
+    justify-content: center;
+}
+
+.boutton_inscription_apprenant{
+    padding: 10px 50px;
+    border-radius: 7px;
+    background-color:rgb(44, 186, 162);
+    border: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+
+
+.boutton_inscription_apprenant:hover {
+    filter: brightness(75%);
+}
+

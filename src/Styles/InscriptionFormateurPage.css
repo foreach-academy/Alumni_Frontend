@@ -1,0 +1,57 @@
+.page_inscription_formateur{
+    background-image: url("../Assets/fond_carre_rose.png");
+    background-repeat: repeat;
+    font-family: poppins-regular;
+}
+
+.logo_foreach_page_inscription_formateur{
+    width: 380px;
+    background-color: white;
+    padding-right: 34px;
+}
+
+.content_logo_page_inscription_formateur{
+    display: flex;
+    justify-content: center;
+  }
+
+.block_inscription_formateur{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.input_inscription_formateur{
+    padding-right: 120px;
+    padding-left: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    border-radius: 7px;
+    border: 2px solid black;
+    background-color: rgb(219, 219, 219);
+}
+
+.case_a_cocher_inscription_formateur{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.block_boutton_inscription_formateur{
+    display: flex;
+    justify-content: center;
+}
+.boutton_inscription_formateur{
+    padding: 10px 50px;
+    border-radius: 7px;
+    background-color: rgb(203, 72, 153);
+    border: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.boutton_inscription_formateur:hover {
+    filter: brightness(75%);
+}
