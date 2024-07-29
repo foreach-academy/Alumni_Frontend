@@ -54,6 +54,7 @@ return <>
         <img src={require("../Assets/logo_foreach_couleur_horizontal.png")} alt="logo_foreach" className="logo_foreach_page_inscription_apprenant" />
     </div>
     <div className="block_inscription_apprenant">
+ inscription
     <div className="premiere_partie_input">
         <input type="email" name="email" defaultValue={email} placeholder="Email" onChange={(e) => {setEmail(e.target.value)}} className="input_inscription_apprenant" required/>
         <input type="password" name="mot de passe" defaultValue={mdp} placeholder="Mot de passe" onChange={(e) => {setMdp(e.target.value)}} className="input_inscription_apprenant" required/>
@@ -81,7 +82,10 @@ return <>
         </div>
          {emailError && <p>Votre email est invalide</p>}
          {mdpError && <p>Votre mot de passe est invalide</p>}
-    
+   
+      
+    </div>
+          
 </body>
     <Footer/>
     </>

@@ -29,6 +29,12 @@ const InscriptionFormateur = () => {
         instance.post('/auth/inscription_formateur', {
             ut_email : email,
             ut_motdepasse : mdp,
+
+            en_nom_contact : nom,
+            en_prenom_contact : prenom,
+            en_nom : formateur,
+            en_fonction_contact : fonction,
+
             pr_nom : nom,
             pr_prenom: prenom,
 
@@ -49,6 +55,7 @@ return <>
         <img src={require("../Assets/logo_foreach_couleur_horizontal.png")} alt="logo_foreach" className="logo_foreach_page_inscription_formateur" />
     </div>
     <div className="block_inscription_formateur">
+
         <input type="email" name="email" defaultValue={email} placeholder="Email" onChange={(e) => {setEmail(e.target.value)}} className="input_inscription_formateur"required/>
         <input type="password" name="mot de passe" defaultValue={mdp} placeholder="Mot de passe" onChange={(e) => {setMdp(e.target.value)}} className="input_inscription_formateur" required/>
         <input type="text" name="nom" defaultValue={nom} placeholder="Nom" onChange={(e) => {setNom(e.target.value)}} className="input_inscription_formateur" required/>
@@ -63,7 +70,9 @@ return <>
         </div>
          {emailError && <p>Votre email est invalide</p>}
          {mdpError && <p>Votre mot de passe est invalide</p>}
-   
+ 
+    </div>
+
 </body>
     <Footer/>
     </>
