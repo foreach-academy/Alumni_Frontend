@@ -29,6 +29,7 @@ const InscriptionApprenant = () => {
         };
 
     const inscription = () => {
+        console.log('coucou');
         instance.post('/auth/inscription_apprenant', {
             ut_email : email,
             ut_motdepasse : mdp,
@@ -49,9 +50,10 @@ const InscriptionApprenant = () => {
 
 
 return <>
-<body className="page_inscription_apprenant">
+    <body className="page_inscription_apprenant">
     <div className="content_logo_page_inscription_apprenant">
-        <img src={require("../Assets/logo_foreach_couleur_horizontal.png")} alt="logo_foreach" className="logo_foreach_page_inscription_apprenant" />
+        <img src={require("../Assets/logo_foreach_couleur_horizontal.png")} alt="logo_foreach"
+             className="logo_foreach_page_inscription_apprenant"/>
     </div>
     <div className="block_inscription_apprenant">
 
