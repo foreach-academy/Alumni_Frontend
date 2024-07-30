@@ -22,6 +22,17 @@
     margin-top: 20px;
 }
 
+.premiere_partie_inscription_entreprise{
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+}
+
+.deuxieme_partie_inscription_entreprise{
+    display: flex;
+    flex-direction: column;
+}
+
 .input_inscription_entreprise{
     padding-left: 5px;
     padding-top: 10px;
@@ -30,6 +41,17 @@
     border-radius: 7px;
     border: 2px solid black;
     background-color: rgb(219, 219, 219);
+}
+
+.case_a_cocher_inscription_entreprise{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.block_boutton_inscription_entreprise{
+    display: flex;
+    justify-content: center;
 }
 
 .boutton_inscription_entreprise{
