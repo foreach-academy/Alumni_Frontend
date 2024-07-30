@@ -65,7 +65,7 @@ return <>
             <input type="text" name="formation" defaultValue={entreprise} placeholder="Nom de l'entreprise" onChange={(e) => {setEntreprise(e.target.value)}} className="input_inscription_entreprise" required/>
             <input type="text" name="promotion" defaultValue={fonction} placeholder="Fonction dans l'entreprise" onChange={(e) => {setFonction(e.target.value)}}className="input_inscription_entreprise" required/>
        </div>
-       </div>
+       
        <div className="case_a_cocher_inscription_entreprise">
             <input type="checkbox" required/>
             <label for="valider_inscription">En m'inscrivant, j'accepte que les données renseignées soient utilisées par l'équipe de ForEach Academy.</label>
@@ -77,7 +77,7 @@ return <>
          {mdpError && <p>Votre mot de passe est invalide</p>}
     
 
-     </div
+     </div>
 </body>
     <Footer/>
     </>
