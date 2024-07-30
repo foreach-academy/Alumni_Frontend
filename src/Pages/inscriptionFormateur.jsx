@@ -29,12 +29,6 @@ const InscriptionFormateur = () => {
         instance.post('/auth/inscription_formateur', {
             ut_email : email,
             ut_motdepasse : mdp,
-
-            en_nom_contact : nom,
-            en_prenom_contact : prenom,
-            en_nom : formateur,
-            en_fonction_contact : fonction,
-
             pr_nom : nom,
             pr_prenom: prenom,
 
@@ -68,6 +62,7 @@ return <>
         <div className="block_boutton_inscription_formateur">
             <button onClick={validate} className="boutton_inscription_formateur" >Validate</button>
         </div>
+    <div>
          {emailError && <p>Votre email est invalide</p>}
          {mdpError && <p>Votre mot de passe est invalide</p>}
  
