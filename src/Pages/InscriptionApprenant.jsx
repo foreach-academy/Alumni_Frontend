@@ -65,6 +65,7 @@ return <>
             <input type="text" name="formation" defaultValue={formation} placeholder="Formation" onChange={(e) => {setFormation(e.target.value)}} className="input_inscription_apprenant" required/>
             <input type="text" name="promotion" defaultValue={promotion} placeholder="Promotion" onChange={(e) => {setPromotion(e.target.value)}}className="input_inscription_apprenant" required/>
         </div> 
+        </div>
         <div className="block_case_a_cocher_apprenant">
             <div className="case_a_cocher_en_formation">
                 <input type="checkbox" required/>
@@ -83,7 +84,7 @@ return <>
             {mdpError && <p>Votre mot de passe est invalide</p>}
    
       
-    </div>
+    
           
 </body>
     <Footer/>
