@@ -17,10 +17,11 @@
 
 .block_inscription_apprenant{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     margin-top: 20px;
 }
+
 
 .premiere_partie_input{
     display: flex;
@@ -32,6 +33,7 @@
     display: flex;
     flex-direction: column;
 }
+
 
 .input_inscription_apprenant{
     padding-left: 5px;
@@ -60,16 +62,6 @@
     display: flex;
     justify-content: center;
 }
-
-.boutton_inscription_apprenant{
-    padding: 10px 50px;
-    border-radius: 7px;
-    background-color:rgb(44, 186, 162);
-    border: none;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
 
 
 .boutton_inscription_apprenant:hover {
