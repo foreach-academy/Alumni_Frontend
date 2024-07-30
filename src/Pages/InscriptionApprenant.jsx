@@ -55,12 +55,12 @@ return <>
     </div>
     <div className="block_inscription_apprenant">
     <div className="premiere_partie_input">
-        <input type="email" name="email" defaultValue={email} placeholder="Email" onChange={(e) => {setEmail(e.target.value)}} className="input_inscription_apprenant" required/>
+        <input type="email" name="email" defaultValue={email} placeholder="Email" onChange={(e) => {setEmail(e.target.value)}} className="input_inscription_apprenant" size={35} required/>
         <input type="password" name="mot de passe" defaultValue={mdp} placeholder="Mot de passe" onChange={(e) => {setMdp(e.target.value)}} className="input_inscription_apprenant" required/>
         <input type="text" name="nom" defaultValue={nom} placeholder="Nom" onChange={(e) => {setNom(e.target.value)}} className="input_inscription_apprenant" required/>
     </div>
     <div className="deuxieme_partie_input">
-        <input type="text" name="prenom" defaultValue={prenom} placeholder="Prenom" onChange={(e) => {setPrenom(e.target.value)}}className="input_inscription_apprenant" required />
+        <input type="text" name="prenom" defaultValue={prenom} placeholder="Prenom" onChange={(e) => {setPrenom(e.target.value)}}className="input_inscription_apprenant" size={35} required />
         <input type="text" name="formation" defaultValue={formation} placeholder="Formation" onChange={(e) => {setFormation(e.target.value)}} className="input_inscription_apprenant" required/>
         <input type="text" name="promotion" defaultValue={promotion} placeholder="Promotion" onChange={(e) => {setPromotion(e.target.value)}}className="input_inscription_apprenant" required/>
     </div> 
@@ -77,7 +77,7 @@ return <>
         </div>
     </div> 
         <div className="block_boutton_inscription_apprenant">
-            <button onClick={validate} className="boutton_inscription_apprenant" >Validate</button>
+            <button onClick={validate && inscription} className="boutton_inscription_apprenant" >Validate</button>
         </div>
          {emailError && <p>Votre email est invalide</p>}
          {mdpError && <p>Votre mot de passe est invalide</p>}
