@@ -80,7 +80,7 @@ return <>
             </div>
         </div> 
             <div className="block_boutton_inscription_apprenant">
-                <button onClick={validate && inscription} className="boutton_inscription_apprenant" >Validate</button>
+                <button onClick={validate} className="boutton_inscription_apprenant" >Validate</button>
             </div>
             {emailError && <p>Votre email est invalide</p>}
             {mdpError && <p>Votre mot de passe est invalide</p>}
