@@ -73,7 +73,7 @@ return <>
             <label for="valider_inscription">En m'inscrivant, j'accepte que les données renseignées soient utilisées par l'équipe de ForEach Academy.</label>
         </div>
        <div className="block_boutton_inscription_entreprise">
-            <button onClick={validate && inscription} className="boutton_inscription_entreprise" >Validate</button>
+            <button onClick={validate} className="boutton_inscription_entreprise" >Validate</button>
         </div>
          {emailError && <p>Votre email est invalide</p>}
          {mdpError && <p>Votre mot de passe est invalide</p>}
