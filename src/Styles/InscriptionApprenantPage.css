@@ -63,6 +63,15 @@
     justify-content: center;
 }
 
+.boutton_inscription_apprenant{
+    padding: 10px 50px;
+    border-radius: 7px;
+    background-color: rgb(44, 186, 162);
+    border: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
 
 .boutton_inscription_apprenant:hover {
     filter: brightness(75%);
