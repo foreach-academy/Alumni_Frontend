@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import instance from "../API/axios";
 import { validEmail, validMdp } from '../Regex';
 import "../Styles/InscriptionApprenantPage.css";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const InscriptionApprenant = () => {
@@ -22,15 +24,16 @@ const InscriptionApprenant = () => {
     const validate = () => {
             if (!validEmail.test(email)) {
               setEmailError(true);
+              toast.error("Email incorrect")
            }
            if (!validMdp.test(mdp)) {
               setMdpError(true);
+              toast.error("Votre mot de passe doit contenir au moins : 8 caractères, 1 majuscule, 1 chiffre et 1 caractère speciale.")
            }
         };
 
     const inscription = () => {
-        console.log('coucou');
-        instance.post('/auth/inscription_apprenant', {
+        instance.post('/authenticate/inscription_apprenant', {
             ut_email : email,
             ut_motdepasse : mdp,
             pr_nom : nom,
@@ -40,13 +43,20 @@ const InscriptionApprenant = () => {
 
         })
         .then(function(response){
-            console.log(response.data.message);
+            toast.success(response.data.message);
             navigate("/connexion");
         })
         .catch(function(error) {
             console.log(error);
         })
-    }
+        
+    };    
+
+        const validInscription = () => {
+            if (validate()){
+                inscription();
+            }
+        }
 
 
 return <>
@@ -80,15 +90,13 @@ return <>
             </div>
         </div> 
             <div className="block_boutton_inscription_apprenant">
-                <button onClick={validate} className="boutton_inscription_apprenant" >Validate</button>
+                <button onClick={validInscription} className="boutton_inscription_apprenant" >Validate</button>
             </div>
-            {emailError && <p>Votre email est invalide</p>}
-            {mdpError && <p>Votre mot de passe est invalide</p>}
    
       
     
           
-</body>
+    </body>
     <Footer/>
     </>
     

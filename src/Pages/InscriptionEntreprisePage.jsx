@@ -4,6 +4,10 @@ import { useNavigate } from "react-router-dom";
 import instance from "../API/axios";
 import { validEmail, validMdp } from '../Regex';
 import "../Styles/InscriptionEntreprisePage.css";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 const InscriptionEntreprise = () => {
 
@@ -21,9 +25,11 @@ const InscriptionEntreprise = () => {
     const validate = () => {
             if (!validEmail.test(email)) {
               setEmailError(true);
+              toast.error("Email incorrect")
            }
            if (!validMdp.test(mdp)) {
               setMdpError(true);
+              toast.error("Votre mot de passe doit contenir au moins : 8 caractères, 1 majuscule, 1 chiffre et 1 caractère speciale.")
            }
         };
 
@@ -39,7 +45,7 @@ const InscriptionEntreprise = () => {
 
         })
         .then(function(response){
-            console.log(response.data.message);
+            toast.success(response.data.message);
             navigate("/connexion");
         })
         .catch(function(error) {
@@ -75,8 +81,6 @@ return <>
        <div className="block_boutton_inscription_entreprise">
             <button onClick={validate} className="boutton_inscription_entreprise" >Validate</button>
         </div>
-         {emailError && <p>Votre email est invalide</p>}
-         {mdpError && <p>Votre mot de passe est invalide</p>}
     
 
      

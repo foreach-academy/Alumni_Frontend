@@ -5,6 +5,8 @@ import InscriptionPage from './Pages/InscriptionPage';
 import InscriptionEntreprise from './Pages/InscriptionEntreprisePage';
 import InscriptionApprenant from './Pages/InscriptionApprenant';
 import InscriptionFormateur from './Pages/inscriptionFormateur';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return<>
@@ -15,6 +17,7 @@ function App() {
     <Route path='/inscription_apprenant' element={<InscriptionApprenant/>}/>
     <Route path= '/inscription_formateur' element={<InscriptionFormateur/>}/>
   </Routes>
+  <ToastContainer/>
   <Footer/>
   </BrowserRouter>
   </>
