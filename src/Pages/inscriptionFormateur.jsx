@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import instance from "../API/axios";
 import { validEmail, validMdp } from '../Regex';
 import "../Styles/InscriptionFormateurPage.css";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const InscriptionFormateur = () => {
 
@@ -18,29 +20,36 @@ const InscriptionFormateur = () => {
     const validate = () => {
             if (!validEmail.test(email)) {
               setEmailError(true);
+              toast.error("Email incorrect")
            }
            if (!validMdp.test(mdp)) {
               setMdpError(true);
+              toast.error("Votre mot de passe doit contenir au moins : 8 caractères, 1 majuscule, 1 chiffre et 1 caractère speciale.")
            }
         };
 
 
     const inscription = () => {
-        instance.post('/auth/inscription_formateur', {
+        instance.post('/authenticate/inscription_formateur', {
             ut_email : email,
             ut_motdepasse : mdp,
-
             en_nom_contact : nom,
             en_prenom_contact : prenom,
 
         })
         .then(function(response){
-            console.log(response.data.message);
+            toast.success(response.data.message);
             navigate("/connexion");
         })
         .catch(function(error) {
             console.log(error);
         })
+    };
+
+    const validInscription = () => {
+        if (validate()){
+            inscription();
+        }
     }
 
 
@@ -60,10 +69,8 @@ return <>
                 <label for="valider_inscription">En m'inscrivant, j'accepte que les données renseignées soient utilisées par l'équipe de ForEach Academy.</label>
         </div>
         <div className="block_boutton_inscription_formateur">
-            <button onClick={validate} className="boutton_inscription_formateur" >Validate</button>
+            <button onClick={validInscription} className="boutton_inscription_formateur" >Validate</button>
         </div>
-         {emailError && <p>Votre email est invalide</p>}
-         {mdpError && <p>Votre mot de passe est invalide</p>}
  
    
 
