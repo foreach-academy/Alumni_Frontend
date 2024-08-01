@@ -10,8 +10,7 @@ function App() {
   return<>
   <BrowserRouter>
   <Routes>
-    <Route path='/'/>
-    <Route path='/inscription' element={<InscriptionPage/>}/>
+    <Route path='/' element={<InscriptionPage/>}/>
     <Route path='/inscription_entreprise' element={<InscriptionEntreprise/>}/>
     <Route path='/inscription_apprenant' element={<InscriptionApprenant/>}/>
     <Route path= '/inscription_formateur' element={<InscriptionFormateur/>}/>

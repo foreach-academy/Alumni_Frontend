@@ -47,7 +47,7 @@ const InscriptionFormateur = () => {
 return <>
 <body className="page_inscription_formateur">
     <div className="content_logo_page_inscription_formateur">
-        <img src={require("../Assets/logo_foreach_couleur_horizontal.png")} alt="logo_foreach" className="logo_foreach_page_inscription_formateur" />
+    <a href="/"><img src={require("../Assets/logo_foreach_couleur_horizontal.png")} alt="logo_foreach" className="logo_foreach_page_inscription_formateur" /></a>  
     </div>
     <div className="block_inscription_formateur">
             <input type="email" name="email" defaultValue={email} placeholder="Email" onChange={(e) => {setEmail(e.target.value)}} className="input_inscription_formateur" size={35} required/>

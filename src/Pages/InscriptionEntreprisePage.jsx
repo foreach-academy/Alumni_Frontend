@@ -51,8 +51,8 @@ const InscriptionEntreprise = () => {
 return <>
     <body className="page_inscription_entreprise">
     <div className="content_logo_page_inscription_entreprise">
-        <img src={require("../Assets/logo_foreach_couleur_horizontal.png")} alt="logo_foreach"
-             className="logo_foreach_page_inscription_entreprise"/>
+    <a href="/"><img src={require("../Assets/logo_foreach_couleur_horizontal.png")} alt="logo_foreach"
+             className="logo_foreach_page_inscription_entreprise"/></a>
     </div>
     <div className="block_inscription_entreprise">
 
