@@ -53,6 +53,12 @@ const InscriptionEntreprise = () => {
         })
     }
 
+    const validInscription = () =>{
+        if (validate()){
+            inscription();
+        }
+    }
+
 
 return <>
     <body className="page_inscription_entreprise">
@@ -79,7 +85,7 @@ return <>
             <label for="valider_inscription">En m'inscrivant, j'accepte que les données renseignées soient utilisées par l'équipe de ForEach Academy.</label>
         </div>
        <div className="block_boutton_inscription_entreprise">
-            <button onClick={validate} className="boutton_inscription_entreprise" >Validate</button>
+            <button onClick={validInscription} className="boutton_inscription_entreprise" >Validate</button>
         </div>
     
 
