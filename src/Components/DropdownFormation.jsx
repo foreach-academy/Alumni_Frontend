@@ -1,41 +1,34 @@
 import React, { useEffect, useState } from "react";
-import Select from 'react-select'
-import axios from "axios";
+import Select from 'react-select';
 import FormationService from "../Services/FormationService";
 
+const Formation = () => {
+    const [formations, setFormations] = useState([]);
 
-const Formation = ({formation}) => {
+    const fetchFormation = async () => {
+        try {
+            const response = await FormationService.getAllFormation();
+            setFormations(response.data);
+        } catch (error) {
+            console.error('Error fetching formations:', error);
+        }
+    };
+
+    useEffect(() => {
+        fetchFormation();
+    }, []);
+
+    const options = formations.map(formation => ({
+        value: formation.type_formation,
+        label: formation.type_formation,
+    }));
+
     return (
-        <Select src={FormationService.type_formation} className="dropdown_formation" />
-    )
-}
-
-// const Formation = () => {
-//     const [formation, setformation] = useState([]);
-
-//     const fetchFormation = async() => {
-//         try {
-//             const response = await FormationService.getAllFormation();
-//             setformation(response.data);
-//         } catch (error) {
-//             console.log(error)
-//         }
-//     }
-
-//     useEffect(() => {
-//         fetchFormation();
-//     }, [])
-
-// const options = [
-//   { value : 'formation.type_formation'},
-// ]
-
-// return <>
-//      {formation.map((formation, index) => (
-//          <Select formation = {formation} key={index} className="dropdown_formation"/> 
-//     ))}
-// </>
-
-// }
+        <Select
+            options={options}
+            className="dropdown_formation"
+        />
+    );
+};
 
 export default Formation;

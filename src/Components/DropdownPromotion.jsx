@@ -1,12 +1,34 @@
-import React from "react";
-import Select from 'react-select'
+import React, { useEffect, useState } from "react";
+import Select from 'react-select';
+import PromotionService from "../Services/PromotionService";
 
-const options = [
-  { value : 'promotion.nom_promotion'},
-]
+const Promotion = () => {
+    const [promotions, setPromotions] = useState([]);
 
-const Promotion = () => (
-  <Select options={options} className="dropdown_promotion"/>
-)
+    const fetchPromotions = async () => {
+        try {
+            const response = await PromotionService.getAllPromotion();
+            setPromotions(response.data);
+        } catch (error) {
+            console.error('Error fetching promotions:', error);
+        }
+    };
+
+    useEffect(() => {
+        fetchPromotions();
+    }, []);
+
+    const options = promotions.map(promotion => ({
+        value: promotion.nom_promotion,
+        label: promotion.nom_promotion,
+    }));
+
+    return (
+        <Select
+            options={options}
+            className="dropdown_promotion"
+        />
+    );
+};
 
 export default Promotion;
