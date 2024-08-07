@@ -6,6 +6,8 @@ import { validEmail, validMdp } from '../Regex';
 import "../Styles/InscriptionApprenantPage.css";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import Formation from "../Components/DropdownFormation";
+import Promotion from "../Components/DropdownPromotion";
 
 
 const InscriptionApprenant = () => {
@@ -74,8 +76,8 @@ return <>
         </div>
         <div className="deuxieme_partie_input">
             <input type="text" name="prenom" defaultValue={prenom} placeholder="Prenom" onChange={(e) => {setPrenom(e.target.value)}}className="input_inscription_apprenant" size={35} required />
-            <input type="text" name="formation" defaultValue={formation} placeholder="Formation" onChange={(e) => {setFormation(e.target.value)}} className="input_inscription_apprenant" required/>
-            <input type="text" name="promotion" defaultValue={promotion} placeholder="Promotion" onChange={(e) => {setPromotion(e.target.value)}}className="input_inscription_apprenant" required/>
+            <Formation type="text" name="formation" defaultValue={formation} placeholder="Formation" onChange={(e) => {setFormation(e.target.value)}} className="input_inscription_apprenant" required/>
+            <Promotion type="text" name="promotion" defaultValue={promotion} placeholder="Promotion" onChange={(e) => {setPromotion(e.target.value)}}className="input_inscription_apprenant" required/>
         </div> 
         </div>
         <div className="block_case_a_cocher_apprenant">

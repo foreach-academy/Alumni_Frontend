@@ -45,6 +45,20 @@
     background-color: rgb(219, 219, 219);
 }
 
+.dropdown_formation{
+    margin-bottom: 23px;
+    border-radius: 7px;
+    border: 2px solid black;
+    background-color: rgb(219, 219, 219) !important;
+}
+
+.dropdown_promotion{
+    margin-bottom: 25px;
+    border-radius: 7px;
+    border: 2px solid black;
+    background-color: rgb(219, 219, 219) !important;
+}
+
 
 .case_a_cocher_en_formation{
     margin-bottom: 10px;
