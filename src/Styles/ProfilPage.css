@@ -1,0 +1,79 @@
+.page_profil{
+    background-color: aqua;
+}
+
+.content_profil {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 40%; 
+    margin-top: 100px;
+    font-size: small;
+    background-color: rgba(243, 243, 243, 0.5);
+}
+
+.liste_info{
+    line-height: 100%
+}
+
+.info_formation{
+    display: flex;
+}
+
+.bloc_selection_formation{
+    position: relative;
+    left: 68%;
+    width: 250px;
+}
+
+.selection_formation{
+    margin-bottom: none;
+}
+
+
+
+.info_type_aide{
+    display: flex;
+}
+
+.bloc_selection_type_aide{
+    position: relative;
+    left: 100%;
+    height: 10px;
+    width: 250px;
+    border-radius: 7px;
+    border: 2px solid black;
+    background-color: rgb(219, 219, 219) !important;
+}
+
+.info_competence{
+    display: flex;
+}
+
+.bloc_selection_type_competence{
+    position: relative;
+    left: 85%;
+    width: 250px;
+    border-radius: 7px;
+    border: 2px solid black;
+    background-color: rgb(219, 219, 219) !important;
+    margin-top: 5px;
+}
+
+.boutton_page_profil{
+    display: flex;
+    justify-content: center;
+}
+
+.boutton_modifier_profil{
+    padding: 10px 20px;
+    border-radius: 7px;
+    background-color: rgb(247, 148, 29);
+    border: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+
+
+
