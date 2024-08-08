@@ -6,7 +6,7 @@ const PageInscription = () => {
 
 return <>
     <div className="content_logo_page_inscription">
-        <img src={require("../Assets/logo_foreach_couleur_horizontal.png")} alt="logo_foreach" className="logo_foreach_page_inscription" />
+    <a href="/"><img src={require("../Assets/logo_foreach_couleur_horizontal.png")} alt="logo_foreach" className="logo_foreach_page_inscription" /></a> 
     </div>
     <div className="titre_contenu">
         <h3>Vous êtes :</h3>
