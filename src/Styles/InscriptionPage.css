@@ -1,0 +1,65 @@
+
+body{
+    background-image: url("../Assets/fond_carre.png");
+    background-repeat: repeat;
+    font-family: poppins-regular;
+}
+.logo_foreach_page_inscription{
+    width: 380px;
+    background-color: white;
+    padding-right: 34px;
+}
+
+.content_logo_page_inscription{
+  display: flex;
+  justify-content: center;
+}
+
+
+.titre_contenu{
+    position: absolute;
+    top: 30%;
+    left: 45%;
+    font-size: 30px;
+}
+
+.categorie_inscription{
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    text-decoration: none;
+
+}
+
+.lien_categorie{
+    text-decoration: none;
+    color: black;
+}
+
+.lien_categorie:hover{
+    filter: brightness(75%);
+}
+
+.categorie_entreprise{
+    background-color: rgb(247, 148, 29);
+    padding: 10px 30px 10px 30px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.categorie_apprenant{
+    background-color:rgb(44, 186, 162);
+    padding: 10px 100px 10px 100px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.categorie_formateur{
+    background-color: rgb(203, 72, 153);
+    padding: 10px 30px 10px 30px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 25px;
+}
