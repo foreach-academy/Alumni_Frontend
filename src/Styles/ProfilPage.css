@@ -12,11 +12,46 @@
     background-color: rgba(243, 243, 243, 0.5);
 }
 
+.dropdown_typeAide{
+    background-color: red !important;
+}
+
+.bloc_input_specialite{
+    position: relative;
+    left: 89%;
+}
+
+.bloc_input_linkedin{
+    position: relative;
+    left: 85%;
+}
+
+.bloc_input_entreprise{
+    position: relative;
+    left: 90%;
+}
+
+.bloc_input_email{
+    position: relative;
+    left: 64%;
+}
+
+.bloc_input_fun{
+    position: relative;
+    left: 94%;
+}
+
+.input_profil{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
 .liste_info{
     line-height: 100%
 }
 
-.info_formation{
+.info{
     display: flex;
 }
 
@@ -31,11 +66,6 @@
 }
 
 
-
-.info_type_aide{
-    display: flex;
-}
-
 .bloc_selection_type_aide{
     position: relative;
     left: 100%;
@@ -46,9 +76,6 @@
     background-color: rgb(219, 219, 219) !important;
 }
 
-.info_competence{
-    display: flex;
-}
 
 .bloc_selection_type_competence{
     position: relative;

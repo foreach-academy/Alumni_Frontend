@@ -92,7 +92,7 @@ return <>
             </div>
         </div> 
             <div className="block_boutton_inscription_apprenant">
-                <button onClick={validInscription} className="boutton_inscription_apprenant" >Validate</button>
+                <button onClick={validate && inscription} className="boutton_inscription_apprenant" >Validate</button>
             </div>
    
       

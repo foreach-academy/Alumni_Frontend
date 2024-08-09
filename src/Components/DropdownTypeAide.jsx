@@ -26,7 +26,7 @@ const TypeAide = () => {
     return (
         <Select
             options={options}
-            className="dropdown_type_aide"
+            className="dropdown_typeAide"
         />
     );
 };
