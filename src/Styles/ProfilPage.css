@@ -2,6 +2,19 @@
     padding-top: 90px;
 }
 
+.text_bienvenue{
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 40%;
+  margin-left: 70px;
+  width: 20%;
+}
+
+.espace_alumni{
+  color: rgb(42, 45, 67);
+}
+
 .content_profil {
     max-height: 500px; 
     overflow-y: auto; 

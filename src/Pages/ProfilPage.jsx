@@ -83,6 +83,9 @@ const ProfilPage = () => {
     <NavBar className="NavBar_profil_page" />
       <body className="page_profil">
         {/* <CardProfil/> */}
+        <div className="text_bienvenue">
+        <h2>BIENVENUE SUR TON <span className="espace_alumni">ESPACE ALUMNI</span></h2>
+        </div>
         <div className="content_profil">
           <div className="header-title">
             <h1>Nom</h1>
