@@ -1,24 +1,32 @@
 import Footer from "../Components/Footer"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import instance from "../API/axios";
 import { validEmail, validMdp } from '../Regex';
 import "../Styles/InscriptionApprenantPage.css";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import Formation from "../Components/DropdownFormation";
-import Promotion from "../Components/DropdownPromotion";
+
 
 
 const InscriptionApprenant = () => {
+
+    const [inscription,setInscription] = useState({
+        ut_email: "",
+        ut_motdepasse: "",
+        pr_nom: "",
+        pr_prenom: "",
+        type_formation: "",
+        nom_promotion: "",
+    })
 
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [mdp, setMdp] = useState("");
     const [nom, setNom] = useState("");
     const [prenom, setPrenom] = useState("");
-    const [formation, setFormation] = useState("");
-    const [promotion, setPromotion] = useState("");
+    const [formation, setFormation] = useState([]);
+    const [promotion, setPromotion] = useState([]);
 
     const [emailError, setEmailError] = useState(false);
     const [mdpError, setMdpError] = useState(false);
@@ -34,25 +42,47 @@ const InscriptionApprenant = () => {
            }
         };
 
-    const inscription = () => {
-        instance.post('/authenticate/inscription_apprenant', {
-            ut_email : email,
-            ut_motdepasse : mdp,
-            pr_nom : nom,
-            pr_prenom : prenom,
-            type_formation : formation,
-            nom_promotion : promotion,
+    const addInscription = () => {
+        instance.post('/utilisateur/', inscription)
+            // ut_email : email,
+            // ut_motdepasse : mdp,
+            // pr_nom : nom,
+            // pr_prenom : prenom,
+            // type_formation : formation,
+            // nom_promotion : promotion,
 
-        })
+
         .then(function(response){
-            toast.success(response.data.message);
             navigate("/connexion");
+            toast.success("Inscription réussie!");
         })
         .catch(function(error) {
-            console.log(error);
+            toast.error(error.response.data.error);
         })
         
     };    
+
+    const getFormation = () => {
+        instance
+          .get("/formation")
+          .then((response) => {
+            setFormation(response.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      };
+
+    const getPromotion = () => {
+        instance
+        .get("/promotion")
+        .then((response) => {
+            setPromotion(response.data);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+    };
 
         const validInscription = () => {
             if (validate()){
@@ -60,6 +90,10 @@ const InscriptionApprenant = () => {
             }
         }
 
+    useEffect(() => {
+        getFormation();
+        getPromotion();
+    }, []);
 
 return <>
     <body className="page_inscription_apprenant">
@@ -68,18 +102,101 @@ return <>
              className="logo_foreach_page_inscription_apprenant"/></a>
     </div>
     <div className="block_inscription_apprenant">
+    <div className="premiere_partie_input">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              onChange={(e) => {
+                setInscription({ ...inscription, ut_email: e.target.value });
+              }}
+              className="input_inscription_apprenant" size={35} required 
+            />
+            <input
+              type="password"
+              name="motdepasse"
+              placeholder="Mot de Passe"
+              onChange={(e) => {
+                setInscription({ ...inscription, ut_motdepasse: e.target.value });
+              }}
+              className="input_inscription_apprenant" size={35} required
+            />
+            <input
+              type="text"
+              name="nom"
+              placeholder="Nom"
+              onChange={(e) => {
+                setInscription({ ...inscription, pr_nom: e.target.value });
+              }}
+              className="input_inscription_apprenant" size={35} required
+            />
+            </div>
+            <div className="deuxieme_partie_input">
+            <input
+              type="text"
+              name="prenom"
+              placeholder="Prenom"
+              onChange={(e) => {
+                setInscription({
+                  ...inscription,
+                  pr_prenom: e.target.value,
+                });
+              }}
+              className="input_inscription_apprenant" size={35} required
+            />
 
-        <div className="premiere_partie_input">
+        {/* <div className="premiere_partie_input">
             <input type="email" name="email" defaultValue={email} placeholder="Email" onChange={(e) => {setEmail(e.target.value)}} className="input_inscription_apprenant" size={35} required/>
             <input type="password" name="mot de passe" defaultValue={mdp} placeholder="Mot de passe" onChange={(e) => {setMdp(e.target.value)}} className="input_inscription_apprenant" required/>
             <input type="text" name="nom" defaultValue={nom} placeholder="Nom" onChange={(e) => {setNom(e.target.value)}} className="input_inscription_apprenant" required/>
         </div>
         <div className="deuxieme_partie_input">
-            <input type="text" name="prenom" defaultValue={prenom} placeholder="Prenom" onChange={(e) => {setPrenom(e.target.value)}}className="input_inscription_apprenant" size={35} required />
-            <Formation type="text" name="formation" defaultValue={formation} placeholder="Formation" onChange={(e) => {setFormation(e.target.value)}} className="input_inscription_apprenant" required/>
-            <Promotion type="text" name="promotion" defaultValue={promotion} placeholder="Promotion" onChange={(e) => {setPromotion(e.target.value)}}className="input_inscription_apprenant" required/>
-        </div> 
+            <input type="text" name="prenom" defaultValue={prenom} placeholder="Prenom" onChange={(e) => {setPrenom(e.target.value)}}className="input_inscription_apprenant" size={35} required /> */}
+            <select
+              required
+              className="input_inscription_apprenant" 
+              name=""
+              id=""
+              onChange={(e) => {
+                setFormation({
+                  ...formation,
+                  type_formation: parseInt(e.target.value),
+                });
+              }}
+            >
+              {formation.map((formation, id) => {
+                return (
+                  <option value={formation.id_formation} key={id}>
+                    {formation.type_formation}
+                  </option>
+                );
+              })} 
+            </select>
+            <select
+              required
+              className="input_inscription_apprenant"
+              name=""
+              id=""
+              onChange={(e) => {
+                setPromotion({
+                  ...promotion,
+                  nom_promotion: parseInt(e.target.value),
+                });
+              }}
+            >
+              {promotion.map((promotion, id) => {
+                return (
+                  <option value={promotion.id_promotion} key={id}>
+                    {promotion.nom_promotion}
+                  </option>
+                );
+              })}
+            </select>
         </div>
+            {/* <Formation type="text" name="formation" defaultValue={formation} placeholder="Formation" onChange={(e) => {setFormation(e.target.value)}} className="input_inscription_apprenant" required/>
+            <Promotion type="text" name="promotion" defaultValue={promotion} placeholder="Promotion" onChange={(e) => {setPromotion(e.target.value)}}className="input_inscription_apprenant" required/> */}
+        </div> 
+        {/* </div> */}
         <div className="block_case_a_cocher_apprenant">
             <div className="case_a_cocher_en_formation">
                 <input type="checkbox" required/>
@@ -92,10 +209,8 @@ return <>
             </div>
         </div> 
             <div className="block_boutton_inscription_apprenant">
-                <button onClick={validInscription} className="boutton_inscription_apprenant" >Validate</button>
+                <button onClick={() => {validInscription(); addInscription();}}className="boutton_inscription_apprenant" >Validate</button>
             </div>
-   
-      
     
           
     </body>
