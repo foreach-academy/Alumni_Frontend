@@ -50,8 +50,6 @@ const ValidationComptePage = () => {
         </div>
         </main>
         <Footer/>
-
-    
     </>
 }
 
