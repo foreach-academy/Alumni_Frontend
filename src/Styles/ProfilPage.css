@@ -1,18 +1,22 @@
 .page_profil{
-    padding-top: 90px;
+    padding-top: 120px;
+    background: linear-gradient(to top, #336699, #ff9966);
+    min-height: calc(100vh - 100px);
 }
 
 .text_bienvenue{
   display: flex;
   flex-direction: row;
   position: absolute;
-  top: 40%;
+  top: 45%;
   margin-left: 70px;
   width: 20%;
+  font-size: larger;
 }
 
 .espace_alumni{
   color: rgb(42, 45, 67);
+  
 }
 
 .content_profil {
@@ -65,11 +69,12 @@
 
 .boutton_page_profil{
     display: flex;
-    justify-content: center;
+    justify-content: end;
+    max-width: 70%;
 }
 
 .boutton_modifier_profil{
-    margin-top: 10px;
+    margin-top: 20px;
     padding: 10px 20px;
     border-radius: 7px;
     background-color: rgb(44, 186, 162);
