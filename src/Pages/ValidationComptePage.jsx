@@ -5,7 +5,6 @@ import Footer from '../Components/Footer';
 import ButtonValide from '../Assets/valide.png';
 import ButtonRefuse from '../Assets/croix.png';
 import '../Styles/ValidationCompte.css';
-import RefuseModal from '../Components/RefuseModal'; // Import du modal
 
 const ValidationComptePage = () => {
     const [pendingUsers, setPendingUsers] = useState([]);
@@ -34,34 +33,6 @@ const ValidationComptePage = () => {
         }
     };
 
-    const refuseUser = async (userId, reason) => {
-        try {
-            await instance.delete(`/utilisateur/refuse/${userId}`, {
-                data: { reason }
-            });
-            fetchPendingUsers();  // Mise à jour de la liste après refus
-        } catch (error) {
-            console.error('Erreur lors du refus de l\'utilisateur :', error);
-        }
-    };
-
-    const openModal = (user) => {
-        setSelectedUser(user);
-        setIsModalOpen(true);
-    };
-
-    const closeModal = () => {
-        setSelectedUser(null);
-        setIsModalOpen(false);
-    };
-
-    const handleRefuse = async (reason) => {
-        if (selectedUser) {
-            await refuseUser(selectedUser.id_utilisateur, reason);
-            closeModal();
-        }
-    };
-
     return (
         <>
             <NavBar />
@@ -87,8 +58,7 @@ const ValidationComptePage = () => {
                                     <img src={ButtonValide} alt="logocheck" height={15} width={15} />
                                 </button>
                                 <button 
-                                    className='style-button' 
-                                    onClick={() => openModal(user)}
+                                    className='style-button'
                                 >
                                     <img src={ButtonRefuse} alt="logocroix" height={15} width={15} />
                                 </button>
@@ -98,11 +68,6 @@ const ValidationComptePage = () => {
                 )}
             </main>
             <Footer />
-            <RefuseModal 
-                isOpen={isModalOpen} 
-                onClose={closeModal} 
-                onRefuse={handleRefuse} 
-            />
         </>
     );
 };
