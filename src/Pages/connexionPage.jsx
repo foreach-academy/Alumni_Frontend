@@ -31,7 +31,7 @@ const ConnexionPage = () => {
         })
         .then((response) => {
             localStorage.setItem('token', response.data.token);
-            navigate('/');
+            navigate('/page_annuaire');
         })
         .catch((error) => {
             if (error.response && error.response.data && error.response.data.message) {
