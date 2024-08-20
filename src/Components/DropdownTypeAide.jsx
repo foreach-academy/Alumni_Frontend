@@ -19,14 +19,14 @@ const TypeAide = () => {
     }, []);
 
     const options = typeAide.map(type_aide => ({
-        value: type_aide.type_aide,
+        value: type_aide.id_typeaide,
         label: type_aide.type_aide,
     }));
 
     return (
         <Select
             options={options}
-            className="dropdown_typeAide"
+            className="input_profil"
         />
     );
 };

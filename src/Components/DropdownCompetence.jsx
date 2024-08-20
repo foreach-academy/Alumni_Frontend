@@ -19,14 +19,14 @@ const TypeCompetence = () => {
     }, []);
 
     const options = typeCompetence.map(type_competence => ({
-        value: type_competence.type_competence,
+        value: type_competence.id_type_competence,
         label: type_competence.type_competence,
     }));
 
     return (
         <Select
             options={options}
-            className="dropdown_type_competence"
+            className="input_profil"
         />
     );
 };

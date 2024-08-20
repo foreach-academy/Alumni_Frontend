@@ -6,7 +6,9 @@ import instance from "../API/axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import CardProfil from "../Components/PhotoProfil";
-
+import Formation from "../Components/DropdownFormation";
+import TypeCompetence from "../Components/DropdownCompetence";
+import TypeAide from "../Components/DropdownTypeAide";
 
 const ProfilPage = () => {
   const [formation, setFormation] = useState([]);
@@ -93,7 +95,8 @@ const ProfilPage = () => {
           <div className="info">
             <div className="info-group">
               <p className="liste_info">Ma formation / Mon parcours</p>
-              <select
+            <Formation className="input_profil"/>
+              {/* <select
                 required
                 className="input_profil"
                 name=""
@@ -110,7 +113,7 @@ const ProfilPage = () => {
                     {formation.type_formation}
                   </option>
                 ))}
-              </select>
+              </select> */}
             </div>
           </div>
           <div className="info">
@@ -176,7 +179,8 @@ const ProfilPage = () => {
           <div className="info">
             <div className="info-group">
               <p className="liste_info">OK pour</p>
-              <select
+              <TypeAide/>
+              {/* <select
                 required
                 className="input_profil"
                 name=""
@@ -193,13 +197,14 @@ const ProfilPage = () => {
                     {type_aide.type_aide}
                   </option>
                 ))}
-              </select>
+              </select> */}
             </div>
           </div>
           <div className="info">
             <div className="info-group">
               <p className="liste_info">Mes compétences</p>
-              <select
+              <TypeCompetence type="text" name="type_competence" className="input_profil"/>
+              {/* <select
                 required
                 className="input_profil"
                 name=""
@@ -219,7 +224,7 @@ const ProfilPage = () => {
                     {typeAide.type_competence}
                   </option>
                 ))}
-              </select>
+              </select> */}
             </div>
           </div>
           <div className="info">
