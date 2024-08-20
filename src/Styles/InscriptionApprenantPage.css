@@ -15,27 +15,28 @@
     justify-content: center;
   }
 
-.block_inscription_apprenant{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 20px;
+  .block_inscription_apprenant {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 50px;
 }
 
+.inputs_container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
 
-.premiere_partie_input{
+.inputs_left,
+.inputs_right {
     display: flex;
     flex-direction: column;
-    margin-right: 15px;
+    width: 100%;
 }
 
-.deuxieme_partie_input{
-    display: flex;
-    flex-direction: column;
-}
-
-
-.input_inscription_apprenant{
+.input_inscription_apprenant {
+    font-size: 16px;
     padding-left: 5px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -45,25 +46,65 @@
     background-color: rgb(219, 219, 219);
 }
 
+.dropdown_formation{
+    margin-bottom: 23px;
+    border-radius: 7px;
+    border: 2px solid black;
+    background-color: rgb(219, 219, 219);
+}
+    background-color: rgb(219, 219, 219) !important;
+}
 
-.case_a_cocher_en_formation{
+.dropdown_promotion{
+    margin-bottom: 25px;
+    border-radius: 7px;
+    border: 2px solid black;
+    background-color: rgb(219, 219, 219) !important;
+}
+
+.dropdown_promotion{
+    margin-bottom: 23px;
+    border-radius: 7px;
+    border: 2px solid black;
+    background-color: rgb(219, 219, 219);
+}
+
+.block_case_a_cocher_apprenant {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.case_a_cocher_en_formation,
+.case_a_cocher_inscription_apprenant {
     margin-bottom: 10px;
-    display: flex;
-    justify-content: center;
 }
 
-.case_a_cocher_inscription_apprenant{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
+.case_a_cocher_en_formation input,
+.case_a_cocher_inscription_apprenant input {
+    margin-right: 10px;
 }
 
-.block_boutton_inscription_apprenant{
-    display: flex;
-    justify-content: center;
+.block_boutton_inscription_apprenant {
+    text-align: center;
 }
 
+.boutton_inscription_apprenant{
+    padding: 10px 50px;
+    border-radius: 7px;
+    background-color: rgb(44, 186, 162);
+    border: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
 
+.boutton_inscription_apprenant {
+    padding: 10px 50px;
+    border-radius: 7px;
+    background-color: rgb(44, 186, 162);
+    border: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
 .boutton_inscription_apprenant:hover {
     filter: brightness(75%);
 }

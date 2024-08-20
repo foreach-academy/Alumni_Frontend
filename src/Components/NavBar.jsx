@@ -12,7 +12,7 @@ const NavBar = () => {
             <p className='navigation_navbar'>CONTACTS</p>
             <p className='navigation_navbar'>A PROPOS</p>
             <div>
-                <p className='navigation_navbar'>PROFIL</p>
+                <a href="/profil"><p className='navigation_navbar'>PROFIL</p></a>
                 <p className='navigation_navbar'>ESPACE CONNEXION</p>
             </div>
         </div>
