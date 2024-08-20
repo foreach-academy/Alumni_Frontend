@@ -1,12 +1,12 @@
 body {
     margin: 0;
-    background: linear-gradient(to right, #336699, #ff9966);
 }
 #containerBlock{
     height: 800px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(to right, #4A84A0, #D89952);
 }
 
 .container {
