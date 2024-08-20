@@ -10,7 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import ValidationComptePage from './Pages/ValidationComptePage';
 import AnnuairePage from './Pages/annuairePage';
-
+import ProfilPage from './Pages/ProfilPage'
+import NavBar from './Components/NavBar';
 
 
 
