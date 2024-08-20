@@ -3,6 +3,7 @@ import instance from '../API/axios';
 import Footer from '../Components/Footer';
 import { useNavigate } from 'react-router-dom';
 import { validEmail } from '../Regex';
+import '../Styles/connexionPage.css';
 import '../Styles/ConnexionPage.css';
 
 const ConnexionPage = () => {
