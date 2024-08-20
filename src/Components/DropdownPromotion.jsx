@@ -19,6 +19,8 @@ const Promotion = () => {
     }, []);
 
     const options = promotions.map(promotion => ({
+
+        value: promotion.id_promotion,
         value: promotion.nom_promotion,
         label: promotion.nom_promotion,
     }));
