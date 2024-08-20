@@ -1,0 +1,49 @@
+#conteneur-annuaire {
+    max-width: 1200px;
+    margin: auto;
+}
+
+#barre-recherche {
+    margin-top: 150px;
+    width: 100%;
+}
+
+#rechercher {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(194, 193, 193);
+}
+
+#legende-block {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.legende-rond {
+    background-color: red;
+    padding: 5px;
+    border-radius: 30px;
+    height: 1px;
+    margin: 10px;
+}
+
+.legende-rond:nth-child(1) {
+    background-color: #2B2D43;
+}
+
+.legende-rond:nth-child(3) {
+    background-color: #2BBAA2;
+}
+
+.legende-rond:nth-child(5) {
+    background-color: #DB8F11;
+}
+
+
+.legende-rond:nth-child(7) {
+    background-color: #CB4899;
+}
+

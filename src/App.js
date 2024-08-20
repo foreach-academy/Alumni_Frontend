@@ -6,6 +6,9 @@ import InscriptionEntreprise from './Pages/InscriptionEntreprisePage';
 import InscriptionApprenant from './Pages/InscriptionApprenant';
 import InscriptionFormateur from './Pages/inscriptionFormateur';
 import ValidationComptePage from './Pages/ValidationComptePage';
+import AnnuairePage from './Pages/annuairePage';
+
+
 
 function App() {
   return<>
@@ -17,6 +20,7 @@ function App() {
     <Route path='/inscription_apprenant' element={<InscriptionApprenant/>}/>
     <Route path= '/inscription_formateur' element={<InscriptionFormateur/>}/>
     <Route path= '/validation_compte' element={<ValidationComptePage/>}/>
+    <Route path='/page_annuaire' element={<AnnuairePage/>}/>
   </Routes>
   <Footer/>
   </BrowserRouter>
