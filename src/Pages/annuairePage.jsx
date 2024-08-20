@@ -15,13 +15,13 @@ const annuairePage = () => {
             </div>
             <div id='legende-block'>
                 <div className='legende-rond'></div>
-                <h6>Anciens apprenant</h6>
+                <h4>Anciens apprenant</h4>
                 <div className='legende-rond'></div>
-                <h6>Apprenant</h6>
+                <h4>Apprenant</h4>
                 <div className='legende-rond'></div>
-                <h6>Entreprise</h6>
+                <h4>Entreprise</h4>
                 <div className='legende-rond'></div>
-                <h6>Formateur</h6>
+                <h4>Formateur</h4>
             </div>
             <CardsAnnuaire/>
         </div>
