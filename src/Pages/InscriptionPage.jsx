@@ -16,7 +16,6 @@ return <>
         <a href="/inscription_apprenant" className="lien_categorie"><p className="categorie_apprenant">Apprenant</p></a>
         <a href="/inscription_formateur" className="lien_categorie"><p className="categorie_formateur">Formateur</p></a>
     </div>
-    <Footer/>
     </>
     
 }

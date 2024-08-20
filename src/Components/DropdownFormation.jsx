@@ -20,6 +20,7 @@ const Formation = () => {
 
     const options = formations.map(formation => ({
         value: formation.id_formation,
+        value: formation.type_formation,
         label: formation.type_formation,
     }));
 
