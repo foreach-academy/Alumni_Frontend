@@ -6,7 +6,7 @@ const NavBar = () => {
         <div className='navbar_block'>
 
             <p>LOGO</p>
-            <p className='navigation_navbar'>ANNUAIRE</p>
+            <a href="/page_annuaire"><p className='navigation_navbar'>ANNUAIRE</p></a>
             <p className='navigation_navbar'>OFFRES STAGE/EMPLOI</p>
             <p className='navigation_navbar'>EVENEMENTS</p>
             <p className='navigation_navbar'>CONTACTS</p>

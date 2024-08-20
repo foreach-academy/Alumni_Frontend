@@ -9,6 +9,7 @@ import CardProfil from "../Components/PhotoProfil";
 import Formation from "../Components/DropdownFormation";
 import TypeCompetence from "../Components/DropdownCompetence";
 import TypeAide from "../Components/DropdownTypeAide";
+import FormationService from "../Services/FormationService";
 
 const ProfilPage = () => {
   const [formation, setFormation] = useState([]);
@@ -40,17 +41,14 @@ const ProfilPage = () => {
         toast.error(error.response.data.error);
       });
   };
-
-  const getFormation = () => {
-    instance
-      .get("/fomation")
-      .then((response) => {
+  const fetchFormation = async () => {
+    try {
+        const response = await FormationService.getAllFormation();
         setFormation(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+    } catch (error) {
+        console.error('Error fetching formations:', error);
+    }
+};
 
   const getTypeAide = () => {
     instance
@@ -75,7 +73,7 @@ const ProfilPage = () => {
   };
 
   useEffect(() => {
-    getFormation();
+    fetchFormation();
     getTypeAide();
     getTypeCompetence();
   }, []);
@@ -95,8 +93,7 @@ const ProfilPage = () => {
           <div className="info">
             <div className="info-group">
               <p className="liste_info">Ma formation / Mon parcours</p>
-            <Formation className="input_profil"/>
-              {/* <select
+              <select
                 required
                 className="input_profil"
                 name=""
@@ -113,7 +110,7 @@ const ProfilPage = () => {
                     {formation.type_formation}
                   </option>
                 ))}
-              </select> */}
+              </select>
             </div>
           </div>
           <div className="info">
@@ -179,8 +176,7 @@ const ProfilPage = () => {
           <div className="info">
             <div className="info-group">
               <p className="liste_info">OK pour</p>
-              <TypeAide/>
-              {/* <select
+              <select
                 required
                 className="input_profil"
                 name=""
@@ -197,14 +193,13 @@ const ProfilPage = () => {
                     {type_aide.type_aide}
                   </option>
                 ))}
-              </select> */}
+              </select>
             </div>
           </div>
           <div className="info">
             <div className="info-group">
               <p className="liste_info">Mes compétences</p>
-              <TypeCompetence type="text" name="type_competence" className="input_profil"/>
-              {/* <select
+              <select
                 required
                 className="input_profil"
                 name=""
@@ -224,7 +219,7 @@ const ProfilPage = () => {
                     {typeAide.type_competence}
                   </option>
                 ))}
-              </select> */}
+              </select>
             </div>
           </div>
           <div className="info">

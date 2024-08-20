@@ -106,5 +106,6 @@
 }
 .boutton_inscription_apprenant:hover {
     filter: brightness(75%);
+    cursor: pointer;
 }
 

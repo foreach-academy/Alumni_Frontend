@@ -8,13 +8,13 @@ import '../Styles/connexionPage.css';
 const ConnexionPage = () => {
     // State
     const navigate = useNavigate();
-    const [ut_email, setEmail] = useState('');
-    const [ut_motdepasse, setMotdepasse] = useState('');
+    const [email, setEmail] = useState("");
+    const [mdp, setMdp] = useState("");
     const [emailError, setEmailError] = useState(false);
     const [loginError, setLoginError] = useState('');
 
     const validateEmail = () => {
-        return validEmail.test(ut_email);
+        return validEmail.test(email);
     };
 
     // Comportement
@@ -26,8 +26,8 @@ const ConnexionPage = () => {
         setEmailError(false);
 
         instance.post('/authenticate/login', {
-            ut_email,
-            ut_motdepasse
+            ut_email : email,
+            ut_motdepasse : mdp
         })
         .then((response) => {
             localStorage.setItem('token', response.data.token);
@@ -40,6 +40,10 @@ const ConnexionPage = () => {
                 setLoginError('Une erreur est survenue');
             }
         });
+        console.log(email)
+        console.log(mdp);
+        
+        
     };
 
     // Affichage 
@@ -51,15 +55,15 @@ const ConnexionPage = () => {
                 <input
                     type="email"
                     placeholder="Email"
-                    value={ut_email}
+                    value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 {emailError && <p>Email non valide</p>}
                 <input
                     type="password"
                     placeholder="Mot de passe"
-                    value={ut_motdepasse}
-                    onChange={(e) => setMotdepasse(e.target.value)}
+                    value={mdp}
+                    onChange={(e) => setMdp(e.target.value)}
                 />
                 <div>
                     <button onClick={connexion}>Me connecter</button>
