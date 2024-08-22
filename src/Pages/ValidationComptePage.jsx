@@ -4,12 +4,16 @@ import NavBar from '../Components/NavBar';
 import Footer from '../Components/Footer';
 import ButtonValide from '../Assets/valide.png';
 import ButtonRefuse from '../Assets/croix.png';
+import Modal from 'react-modal'; // Importation de react-modal
 import '../Styles/ValidationCompte.css';
+
+Modal.setAppElement('#root'); // Configuration de l'accessibilité pour react-modal
 
 const ValidationComptePage = () => {
     const [pendingUsers, setPendingUsers] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
+    const [reason, setReason] = useState('');
 
     useEffect(() => {
         fetchPendingUsers();
@@ -33,12 +37,17 @@ const ValidationComptePage = () => {
         }
     };
 
-    const refuseUser = async (userId) => {
-        try {
-            await instance.delete(`/utilisateur/${userId}`);
-            fetchPendingUsers();  // Mise à jour de la liste après suppression
-        } catch (error) {
-            console.error('Erreur lors du refus de l\'utilisateur :', error);
+    const refuseUser = async () => {
+        if (selectedUser) {
+            try {
+                await instance.delete(`/utilisateur/${selectedUser.id_utilisateur}`, {
+                    data: { reason }
+                });
+                fetchPendingUsers();  // Mise à jour de la liste après suppression
+                closeModal(); // Ferme la modale après suppression
+            } catch (error) {
+                console.error('Erreur lors du refus de l\'utilisateur :', error);
+            }
         }
     };
 
@@ -49,21 +58,8 @@ const ValidationComptePage = () => {
 
     const closeModal = () => {
         setSelectedUser(null);
+        setReason('');
         setIsModalOpen(false);
-    };
-
-    const handleRefuse = async (reason) => {
-        if (selectedUser) {
-            try {
-                // Tu pourrais ici envoyer le motif de refus au backend
-                await instance.delete(`/utilisateur/${selectedUser.id_utilisateur}`, {
-                    data: { reason }
-                });
-                fetchPendingUsers(); // Met à jour la liste après suppression
-            } catch (error) {
-                console.error('Erreur lors du refus de l\'utilisateur :', error);
-            }
-        }
     };
 
     return (
@@ -92,7 +88,7 @@ const ValidationComptePage = () => {
                                 </button>
                                 <button 
                                     className='style-button' 
-                                    onClick={() =>  refuseUser(user.id_utilisateur)}
+                                    onClick={() => openModal(user)} // Ouvre la modale sur clic
                                 >
                                     <img src={ButtonRefuse} alt="logocroix" height={15} width={15} />
                                 </button>
@@ -100,6 +96,25 @@ const ValidationComptePage = () => {
                         </div>
                     ))
                 )}
+
+                <Modal
+                    isOpen={isModalOpen}
+                    onRequestClose={closeModal}
+                    contentLabel="Refuser l'utilisateur"
+                    className="modal"
+                    overlayClassName="modal-overlay"
+                >
+                    <h2>Refuser l'inscription</h2>
+                    <p>Êtes-vous sûr de vouloir refuser l'inscription de {selectedUser?.pr_nom} {selectedUser?.pr_prenom} ?</p>
+                    <textarea
+                        value={reason}
+                        onChange={(e) => setReason(e.target.value)}
+                        placeholder="Motif du refus (facultatif)"
+                        className="reason-textarea"
+                    />
+                    <button onClick={refuseUser} className="modal-button">Confirmer</button>
+                    <button onClick={closeModal} className="modal-button">Annuler</button>
+                </Modal>
             </main>
             <Footer />
         </>
