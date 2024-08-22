@@ -33,6 +33,39 @@ const ValidationComptePage = () => {
         }
     };
 
+    const refuseUser = async (userId) => {
+        try {
+            await instance.delete(`/utilisateur/${userId}`);
+            fetchPendingUsers();  // Mise à jour de la liste après suppression
+        } catch (error) {
+            console.error('Erreur lors du refus de l\'utilisateur :', error);
+        }
+    };
+
+    const openModal = (user) => {
+        setSelectedUser(user);
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setSelectedUser(null);
+        setIsModalOpen(false);
+    };
+
+    const handleRefuse = async (reason) => {
+        if (selectedUser) {
+            try {
+                // Tu pourrais ici envoyer le motif de refus au backend
+                await instance.delete(`/utilisateur/${selectedUser.id_utilisateur}`, {
+                    data: { reason }
+                });
+                fetchPendingUsers(); // Met à jour la liste après suppression
+            } catch (error) {
+                console.error('Erreur lors du refus de l\'utilisateur :', error);
+            }
+        }
+    };
+
     return (
         <>
             <NavBar />
@@ -58,7 +91,8 @@ const ValidationComptePage = () => {
                                     <img src={ButtonValide} alt="logocheck" height={15} width={15} />
                                 </button>
                                 <button 
-                                    className='style-button'
+                                    className='style-button' 
+                                    onClick={() =>  refuseUser(user.id_utilisateur)}
                                 >
                                     <img src={ButtonRefuse} alt="logocroix" height={15} width={15} />
                                 </button>
