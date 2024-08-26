@@ -180,7 +180,6 @@ const InscriptionApprenant = () => {
           <div className="block_boutton_inscription_apprenant">
             <button
               onClick={() => {
-                validInscription();
                 addInscription();
               }}
               className="boutton_inscription_apprenant"
