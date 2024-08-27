@@ -52,6 +52,15 @@
     border: 2px solid black;
     background-color: rgb(219, 219, 219);
 }
+    background-color: rgb(219, 219, 219) !important;
+}
+
+.dropdown_promotion{
+    margin-bottom: 25px;
+    border-radius: 7px;
+    border: 2px solid black;
+    background-color: rgb(219, 219, 219) !important;
+}
 
 .dropdown_promotion{
     margin-bottom: 23px;
@@ -77,6 +86,15 @@
 
 .block_boutton_inscription_apprenant {
     text-align: center;
+}
+
+.boutton_inscription_apprenant{
+    padding: 10px 50px;
+    border-radius: 7px;
+    background-color: rgb(44, 186, 162);
+    border: none;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 
 .boutton_inscription_apprenant {

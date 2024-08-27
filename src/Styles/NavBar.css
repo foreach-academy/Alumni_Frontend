@@ -15,9 +15,16 @@
     font-family: poppins-regular;
     position: fixed;
     width: 100%;
+    background-attachment: fixed;
+    top: 0;
 }
 
 .navigation_navbar:hover{
     cursor: pointer;
     filter: brightness(75%);
+}
+
+a{
+    text-decoration: none;
+    color: white;
 }
