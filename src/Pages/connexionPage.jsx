@@ -17,7 +17,6 @@ const ConnexionPage = () => {
         return validEmail.test(email);
     };
 
-    // Comportement
     const connexion = () => {
         if (!validateEmail()) {
             setEmailError(true);

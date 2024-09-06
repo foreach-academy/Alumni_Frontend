@@ -1,14 +1,9 @@
-import Footer from "../Components/Footer";
 import NavBar from "../Components/NavBar";
 import { useEffect, useState } from "react";
 import "../Styles/ProfilPage.css";
 import instance from "../API/axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import CardProfil from "../Components/PhotoProfil";
-import Formation from "../Components/DropdownFormation";
-import TypeCompetence from "../Components/DropdownCompetence";
-import TypeAide from "../Components/DropdownTypeAide";
 import FormationService from "../Services/FormationService";
 
 const ProfilPage = () => {

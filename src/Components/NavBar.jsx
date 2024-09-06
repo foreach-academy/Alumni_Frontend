@@ -2,9 +2,8 @@ import '../Styles/NavBar.css'
 
 const NavBar = () => {
     return ( 
-       <>
+    <>
         <div className='navbar_block'>
-
             <p>LOGO</p>
             <a href="/page_annuaire"><p className='navigation_navbar'>ANNUAIRE</p></a>
             <p className='navigation_navbar'>OFFRES STAGE/EMPLOI</p>
@@ -15,9 +14,8 @@ const NavBar = () => {
                 <a href="/profil"><p className='navigation_navbar'>PROFIL</p></a>
                 <p className='navigation_navbar'>ESPACE CONNEXION</p>
             </div>
-        </div>
-                
-        </>
+        </div>         
+    </>
     )
 }
 

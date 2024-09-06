@@ -1,4 +1,3 @@
-import Footer from "../Components/Footer"
 import '../Styles/InscriptionPage.css'
 
 const PageInscription = () => {

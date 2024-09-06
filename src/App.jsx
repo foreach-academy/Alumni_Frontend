@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { validEmail, validPassword } from './Regex.jsx';
+import { validEmail } from './Regex.jsx';
 
 const App = () => {
    const [email, setEmail] = useState('');

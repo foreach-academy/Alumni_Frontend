@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import instance from "../API/axios";
 import { validEmail, validMdp } from "../Regex";
 import "../Styles/InscriptionApprenantPage.css";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Promotion from "../Components/DropdownPromotion";
 import Formation from "../Components/DropdownFormation";
