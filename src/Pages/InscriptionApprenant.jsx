@@ -55,7 +55,7 @@ const InscriptionApprenant = () => {
   const addInscription = async () => {
     console.log("ici");
     await instance
-      .post("/account/create", {
+      .post("/account", {
         email: email,
         motdepasse: mdp,
         nom: nom,
@@ -97,6 +97,8 @@ const InscriptionApprenant = () => {
   };
 
   const validInscription = () => {
+
+      console.log('coucou');
     if (validate()) {
       inscription();
     }
