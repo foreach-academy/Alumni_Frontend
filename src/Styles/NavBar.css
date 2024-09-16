@@ -24,7 +24,8 @@
     filter: brightness(75%);
 }
 
-a{
-    text-decoration: none;
-    color: white;
+.profil_logout_button{
+    display: flex;
+    gap: 40px;
+    align-items: end;
 }

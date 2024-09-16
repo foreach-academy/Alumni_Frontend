@@ -2,6 +2,7 @@
     background-image: url("../Assets/fond_carre_seagreen.png");
     background-repeat: repeat;
     font-family: poppins-regular;
+    min-height: calc(100vh - 80px);
 }
 
 .logo_foreach_page_inscription_apprenant{
@@ -109,3 +110,14 @@
     cursor: pointer;
 }
 
+.apprenant_redirect_connexion{
+    color: rgb(44, 186, 162);
+    cursor: pointer;
+}
+.apprenant_redirect_connexion:hover{
+    filter: brightness(75%);
+}
+#redirect_connexion{
+    text-align: center;
+    margin-bottom: 40px;
+}

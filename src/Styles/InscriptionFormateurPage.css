@@ -2,6 +2,7 @@
     background-image: url("../Assets/fond_carre_rose.png");
     background-repeat: repeat;
     font-family: poppins-regular;
+    min-height: calc(100vh - 80px);
 }
 
 .logo_foreach_page_inscription_formateur{
@@ -52,5 +53,13 @@
 }
 
 .boutton_inscription_formateur:hover {
+    filter: brightness(75%);
+}
+
+.formateur_redirect_connexion{
+    color: rgb(203, 72, 153);
+    cursor: pointer;
+}
+.formateur_redirect_connexion:hover{
     filter: brightness(75%);
 }

@@ -1,6 +1,8 @@
 #conteneur-annuaire {
     max-width: 1200px;
     margin: auto;
+    margin-bottom: 40px;
+    min-height: calc(100vh - 80px);
 }
 
 #barre-recherche {

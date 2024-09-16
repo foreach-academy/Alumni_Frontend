@@ -2,6 +2,7 @@
     background-image: url("../Assets/fond_carre_orange.png");
     background-repeat: repeat;
     font-family: poppins-regular;
+    min-height: calc(100vh - 80px);
 }
 
 .logo_foreach_page_inscription_entreprise{
@@ -65,5 +66,12 @@
 }
 
 .boutton_inscription_entreprise:hover {
+    filter: brightness(75%);
+}
+.entreprise_redirect_connexion{
+    color: rgb(247, 148, 29);
+    cursor: pointer;
+}
+.entreprise_redirect_connexion:hover{
     filter: brightness(75%);
 }
