@@ -200,6 +200,12 @@ return <>
               >
                 Valider
               </button>
+              <p id="redirect_connexion">
+                Déjà un compte ? page de{' '}
+                <span onClick={() => navigate('/connexion')} className="apprenant_redirect_connexion">
+                  CONNEXION
+                </span>
+              </p>       
             </div>
           </div>
       </>

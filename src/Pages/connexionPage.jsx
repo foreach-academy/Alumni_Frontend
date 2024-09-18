@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import instance from '../API/axios';
-import Footer from '../Components/Footer';
 import { useNavigate } from 'react-router-dom';
 import { validEmail } from '../Regex';
 import '../Styles/connexionPage.css';
+import AuthContext from '../Contexts/AuthContext';
+import axios from 'axios';
 
 const ConnexionPage = () => {
     // State
@@ -12,6 +13,7 @@ const ConnexionPage = () => {
     const [mdp, setMdp] = useState("");
     const [emailError, setEmailError] = useState(false);
     const [loginError, setLoginError] = useState('');
+    const {setIsAuthenticated, setToken} = useContext(AuthContext)
 
     const validateEmail = () => {
         return validEmail.test(email);
@@ -29,8 +31,15 @@ const ConnexionPage = () => {
             ut_motdepasse : mdp
         })
         .then((response) => {
-            localStorage.setItem('token', response.data.token);
-            navigate('/page_annuaire');
+            if (response.data.token) {
+                axios.defaults.headers.common['Authorization'] = "Bearer "+response.data.token;
+                window.localStorage.setItem('token', response.data.token);
+                setIsAuthenticated(true);
+                setToken(response.data.token);
+                navigate('/page_annuaire');
+            } else {
+                setLoginError('Le token est manquant dans la réponse.');
+            }
         })
         .catch((error) => {
             if (error.response && error.response.data && error.response.data.message) {
@@ -39,8 +48,7 @@ const ConnexionPage = () => {
                 setLoginError('Une erreur est survenue');
             }
         });
-        console.log(email)
-        console.log(mdp);
+
         
         
     };
@@ -76,7 +84,6 @@ const ConnexionPage = () => {
                 </div>
             </div>
         </div>
-            <Footer/>
         </>
     );
 };

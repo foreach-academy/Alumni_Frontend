@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import instance from '../API/axios';
 import NavBar from '../Components/NavBar';
-import Footer from '../Components/Footer';
 import ButtonValide from '../Assets/valide.png';
 import ButtonRefuse from '../Assets/croix.png';
 import Modal from 'react-modal'; // Importation de react-modal
@@ -116,7 +115,6 @@ const ValidationComptePage = () => {
                     <button onClick={closeModal} className="modal-button">Annuler</button>
                 </Modal>
             </main>
-            <Footer />
         </>
     );
 };

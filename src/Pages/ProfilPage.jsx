@@ -1,49 +1,38 @@
+import React, { useEffect, useState } from "react";
 import NavBar from "../Components/NavBar";
-import { useEffect, useState } from "react";
 import "../Styles/ProfilPage.css";
 import instance from "../API/axios";
+import UtilisateurService from "../Services/UtilisateurService";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import FormationService from "../Services/FormationService";
 
 const ProfilPage = () => {
-  const [formation, setFormation] = useState([]);
-  const [typeAide, setTypeAide] = useState([]);
-  const [typeCompetence, setTypeCompetence] = useState([]);
-  const navigate = useNavigate();
-
-
   const [profil, setProfil] = useState({
-    type_formation: "",
+    pr_nom: "",
+    pr_prenom: "",
     pr_description: "",
     pr_linkedin: "",
     pr_entreprise: "",
     pr_liens: "",
-    type_aide: "",
-    type_competence: "",
     pr_tel: "",
-    pr_fun: "",
+    pr_imgprofil: "" 
   });
+  const [formation, setFormation] = useState([]);
+  const [typeAide, setTypeAide] = useState([]);
+  const [typeCompetence, setTypeCompetence] = useState([]);
+  const [imageFile, setImageFile] = useState(null);
+  const [previewImage, setPreviewImage] = useState(null); // Ajouter l'état pour l'aperçu
+  const navigate = useNavigate();
 
-  const addProfil = () => {
-    instance
-      .post("/profil", profil)
-      .then((response) => {
-        toast.success("Profil mis a jour!");
-        navigate("/profil");
-      })
-      .catch((error) => {
-        toast.error(error.response.data.error);
-      });
-  };
   const fetchFormation = async () => {
     try {
-        const response = await FormationService.getAllFormation();
-        setFormation(response.data);
+      const response = await FormationService.getAllFormation();
+      setFormation(response.data);
     } catch (error) {
-        console.error('Error fetching formations:', error);
+      console.error("Error fetching formations:", error);
     }
-};
+  };
 
   const getTypeAide = () => {
     instance
@@ -68,22 +57,107 @@ const ProfilPage = () => {
   };
 
   useEffect(() => {
+    const fetchProfil = async () => {
+      const utilisateur = UtilisateurService.getUtilisateurIdFromToken();
+      try {
+        const response = await instance.get(`/utilisateur/${utilisateur}/profil`);        
+        setProfil(response.data);
+      } catch (error) {
+        console.error("Erreur lors de la récupération du profil:", error);
+      }
+    };
+
+    fetchProfil();
     fetchFormation();
     getTypeAide();
     getTypeCompetence();
   }, []);
 
+  const addProfil = () => {
+    instance
+      .post("/profil", profil)
+      .then((response) => {
+        toast.success("Profil mis à jour!");
+        navigate("/profil");
+      })
+      .catch((error) => {
+        toast.error(error.response.data.error);
+      });
+  };
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    setImageFile(file);
+
+    // Créer une URL pour l'aperçu de l'image
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setPreviewImage(imageUrl);
+    }
+  };
+
+  const handleImageUpload = async () => {
+    if (imageFile) {
+      const formData = new FormData();
+      formData.append("profileImage", imageFile);
+
+      try {
+        await instance.post(`/profil/${profil.id_profil}/upload`, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data"
+          }
+        });
+        toast.success("Image de profil mise à jour!");
+        // Re-fetch the profile to get the updated image
+        const utilisateur = UtilisateurService.getUtilisateurIdFromToken();
+        const response = await instance.get(`/utilisateur/${utilisateur}/profil`);
+        setProfil(response.data);
+        setPreviewImage(null); // Réinitialiser l'aperçu après le téléchargement
+      } catch (error) {
+        toast.error("Erreur lors du téléchargement de l'image de profil.");
+        console.error(error);
+      }
+    }
+  };
+
   return (
     <>
-    <NavBar className="NavBar_profil_page" />
+      <NavBar className="NavBar_profil_page" />
       <body className="page_profil">
-        {/* <CardProfil/> */}
         <div className="text_bienvenue">
-        <h2>BIENVENUE SUR TON <span className="espace_alumni">ESPACE ALUMNI</span></h2>
+          <div className="info info_image">
+            <div className="">
+              {previewImage ? (
+                <img
+                  src={previewImage}
+                  alt="Aperçu de la photo"
+                  className="profile-image"
+                />
+              ) : (
+                profil.pr_imgprofil && (
+                  <img
+                    src={`http://127.0.0.1:3006/${profil.pr_imgprofil}`}
+                    alt="Photo de profil"
+                    className="profile-image"
+                  />
+                )
+              )}
+            </div>
+            <div className="info-group">
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
+                className="input_profil casab"
+              />
+              <button onClick={handleImageUpload}>Ajouter une photo</button>
+            </div>
+          </div>
+          <h2>BIENVENUE SUR TON <span className="espace_alumni">ESPACE ALUMNI</span></h2>
         </div>
         <div className="content_profil">
           <div className="header-title">
-            <h1>Nom</h1>
+            <h1>{profil.pr_nom ? `${profil.pr_nom} ${profil.pr_prenom}` : "Nom prénom"}</h1>
           </div>
           <div className="info">
             <div className="info-group">
@@ -91,8 +165,6 @@ const ProfilPage = () => {
               <select
                 required
                 className="input_profil"
-                name=""
-                id=""
                 onChange={(e) => {
                   setFormation({
                     ...formation,
@@ -110,11 +182,11 @@ const ProfilPage = () => {
           </div>
           <div className="info">
             <div className="info-group">
-              <p className="liste_info">Mes specialites</p>
+              <p className="liste_info">Mes spécialités</p>
               <input
                 type="text"
                 name="specialite"
-                placeholder="Specialite"
+                placeholder="Spécialité"
                 onChange={(e) => {
                   setProfil({ ...profil, pr_description: e.target.value });
                 }}
@@ -125,11 +197,11 @@ const ProfilPage = () => {
           </div>
           <div className="info">
             <div className="info-group">
-              <p className="liste_info">Mon Linkedin</p>
+              <p className="liste_info">Mon LinkedIn</p>
               <input
-                type="lien"
+                type="text"
                 name="linkedin"
-                placeholder="Mon linkedin"
+                placeholder="Mon LinkedIn"
                 onChange={(e) => {
                   setProfil({ ...profil, pr_linkedin: e.target.value });
                 }}
@@ -157,7 +229,7 @@ const ProfilPage = () => {
             <div className="info-group">
               <p className="liste_info">Mes liens</p>
               <input
-                type="lien"
+                type="text"
                 name="lien"
                 placeholder="Github, Portfolio..."
                 onChange={(e) => {
@@ -174,17 +246,12 @@ const ProfilPage = () => {
               <select
                 required
                 className="input_profil"
-                name=""
-                id=""
                 onChange={(e) => {
-                  setTypeAide({
-                    ...typeAide,
-                    type_aide: parseInt(e.target.value),
-                  });
+                  setProfil({ ...profil, selectedTypeAide: parseInt(e.target.value) });
                 }}
               >
-                {typeAide.map((type_aide, id) => (
-                  <option value={type_aide.id_typeaide} key={id}>
+                {typeAide.map((type_aide) => (
+                  <option value={type_aide.id_typeaide} key={type_aide.id_typeaide}>
                     {type_aide.type_aide}
                   </option>
                 ))}
@@ -197,21 +264,13 @@ const ProfilPage = () => {
               <select
                 required
                 className="input_profil"
-                name=""
-                id=""
                 onChange={(e) => {
-                  setTypeCompetence({
-                    ...typeCompetence,
-                    type_competence: parseInt(e.target.value),
-                  });
+                  setProfil({ ...profil, selectedTypeCompetence: parseInt(e.target.value) });
                 }}
               >
-                {typeCompetence.map((type_competence, id) => (
-                  <option
-                    value={type_competence.id_type_competence}
-                    key={id}
-                  >
-                    {typeAide.type_competence}
+                {typeCompetence.map((type_competence) => (
+                  <option value={type_competence.id_type_competence} key={type_competence.id_type_competence}>
+                    {type_competence.type_competence}
                   </option>
                 ))}
               </select>
@@ -219,13 +278,13 @@ const ProfilPage = () => {
           </div>
           <div className="info">
             <div className="info-group">
-              <p className="liste_info">Mail perso / Numero de téléphone</p>
+              <p className="liste_info">Mail perso / Numéro de téléphone</p>
               <input
                 type="text"
                 name="telephone"
-                placeholder="Numero/Email"
+                placeholder="Numéro/Email"
                 onChange={(e) => {
-                  setProfil({ ...profil, pr_telephone: e.target.value });
+                  setProfil({ ...profil, pr_tel: e.target.value });
                 }}
                 className="input_profil"
                 required

@@ -20,11 +20,9 @@
 }
 
 .content_profil {
-    max-height: 500px; 
-    overflow-y: auto; 
-    padding: 20px;
-    box-sizing: border-box;
-    
+  padding: 20px;
+  box-sizing: border-box;
+  padding-bottom: 50px;
   }
   
   .header-title {
@@ -82,4 +80,32 @@
     font-weight: bold;
     letter-spacing: 2px;
     cursor: pointer;
-} 
+}
+ 
+.boutton_modifier_profil:hover {
+  filter: brightness(75%);
+}
+.text_bienvenue {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrer le contenu horizontalement */
+  position: absolute;
+  top: 45%;
+  width: 40%; /* Prendre toute la largeur disponible */
+  font-size: larger;
+}
+
+.info_image {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrer le contenu horizontalement */
+}
+
+.profile-image {
+  width: 200px; /* Ajustez la taille selon vos besoins */
+  height: 200px; /* Ajustez la taille selon vos besoins */
+  border-radius: 50%;
+  margin-bottom: 10px; /* Espacement entre l'image et le formulaire */
+}
+
+

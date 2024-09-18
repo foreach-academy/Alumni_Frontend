@@ -4,6 +4,9 @@ body{
     background-repeat: repeat;
     font-family: poppins-regular;
 }
+.page_inscription{
+    min-height: calc(100vh - 80px);
+}
 .logo_foreach_page_inscription{
     width: 380px;
     background-color: white;

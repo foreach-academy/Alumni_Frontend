@@ -4,10 +4,13 @@ main {
     flex-direction: column;
     max-width: 1200px;
     margin: auto;
+    min-height: calc(100vh - 100px);
+    margin-bottom: 20px;
+
 }
 
 #title-validation {
-    margin-top: 200px;
+    margin-top: 50px;
     color: #2B2D43;
 }
 
