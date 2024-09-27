@@ -3,6 +3,7 @@ import '../Styles/NavBar.css'
 import AuthContext from '../Contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import logo from "../Assets/logo_foreach_couleur_horizontal.png";
 
 const NavBar = () => {
     const {isAuthenticated, setIsAuthenticated, setToken} = useContext(AuthContext);
@@ -23,7 +24,9 @@ const NavBar = () => {
     <>
         {isAuthenticated ? <>
             <div className='navbar_block'>
-                <p>LOGO</p>
+                <div>
+                    <img src={logo} alt="logo" className='logo'/>
+                </div>
                 <p className='navigation_navbar'onClick={() => {navigateTo("/page_annuaire")}}>ANNUAIRE</p>
                 <p className='navigation_navbar' onClick={() => {navigateTo("/offres_stage_emploi")}}>OFFRES STAGE/EMPLOI</p>
                 <p className='navigation_navbar' onClick={() => {navigateTo("/profil")}}>EVENEMENTS</p>
