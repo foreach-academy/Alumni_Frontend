@@ -11,7 +11,6 @@ import { ToastContainer } from 'react-toastify';
 import ValidationComptePage from './Pages/ValidationComptePage';
 import AnnuairePage from './Pages/annuairePage';
 import ProfilPage from './Pages/ProfilPage'
-import NavBar from './Components/NavBar';
 import AuthContext from './Contexts/AuthContext';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
