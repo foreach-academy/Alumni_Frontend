@@ -6,7 +6,7 @@ class   ProfilService {
     }
 
     static getProfilById(id){
-        return axios.get("http://127.0.0.1:3006/formation/profil/" + id);
+        return axios.get("http://127.0.0.1:3006/profil/" + id);
     }
 }
 
