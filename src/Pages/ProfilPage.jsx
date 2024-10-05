@@ -9,6 +9,7 @@ import FormationService from "../Services/FormationService";
 import ProfilService from "../Services/ProfilService";
 import LiensService from "../Services/LiensService";
 import defaultProfileImage from "../Assets/logo_foreach_couleur_horizontal.png";
+import ProfilAideService from "../Services/ProfilAideService";
 
 
 const ProfilPage = () => {
@@ -30,7 +31,7 @@ const ProfilPage = () => {
     id_profil: "",
   });
 
-  
+  const [profilAide, setProfilAide] = useState([]);
   const [formation, setFormation] = useState([]);
   const [typeAide, setTypeAide] = useState([]);
   const [typeCompetence, setTypeCompetence] = useState([]);
@@ -99,7 +100,22 @@ const ProfilPage = () => {
   
     fetchLiens();
   }, [profil.id_profil]);
-   
+
+  useEffect(() => {
+    const fetchProfilAide = async () => {
+      
+      try {
+        const response = await ProfilAideService.getProfilAideByProfilId(profil.id_profil.id_profil);
+        setProfilAide(response); 
+        console.log("reponse de fetch profil aide :",response);
+      } catch (error) {
+        console.error("Erreur lors de la récupération des aides:", error);
+      }
+    };
+
+    fetchProfilAide();
+  }, [profil.id_profil]);
+
 
   const updateProfil = async () => {
     try {
@@ -138,7 +154,31 @@ const ProfilPage = () => {
                 await ProfilService.updateProfil(profilId, { 
                     id_lien: newLienId 
                 });
-            }
+              } 
+
+
+              // Ajout ou mise à jour de ProfilAide
+              const profilAideData = {
+                id_profil: profilId,
+                id_typeaide: profil.selectedTypeAide 
+              };
+
+
+              if (profilAide && profilAide.id_profil_aide) {
+                // Mise à jour du ProfilAide existant
+                console.log("id profil aide :",profilAide.id_profil_aide.id_profil_aide)
+                console.log("Mise à jour du profil aide avec ID:", profilAide.id_profil_aide);
+                await ProfilAideService.updateProfilAide(profilAide.id_profil_aide, profilAideData);
+                console.log("Mise à jour des données pour profil aide :", profilAideData);
+              } else if (!profilAide.id_profil_aide) {
+                // Création d'un nouveau ProfilAide seulement si typeAideId est valide
+                console.log("Création d'un nouveau profil aide.");
+                const response = await ProfilAideService.addProfilAide(profilAideData);
+                const newProfilAide = response.data; // Assurez-vous que c'est bien ici que l'ID est retourné
+                console.log("Nouveau ProfilAide créé :", newProfilAide);
+              } else {
+                console.log("Erreur : typeAideId est invalide ou manquant.");
+              }
 
             toast.success("Profil mis à jour avec succès !");
         }
@@ -171,7 +211,9 @@ const ProfilPage = () => {
       }
     }
   };
+
   console.log(profil)
+  
   return (
     <>
       <NavBar className="NavBar_profil_page" />
@@ -362,4 +404,3 @@ const ProfilPage = () => {
 };
 
 export default ProfilPage;
-
