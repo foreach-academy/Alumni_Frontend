@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import NavBar from '../Components/NavBar';
 import '../Styles/annuairePage.css';
 import ProfilService from '../Services/ProfilService';
+import CardsAnnuaire from '../Components/CardsAnnuaire';
 
 const AnnuairePage = () => {
     const [profils, setProfils] = useState([]);
@@ -39,10 +40,15 @@ const AnnuairePage = () => {
                 </div>
                 <div id='profils'>
                     {profils.map((profil, index) => (
-                        <div key={index} className="profil-card">
-                            <h4>{profil.nom}</h4>
-                            <p>{profil.description}</p>
-                        </div>
+                         <CardsAnnuaire
+                         key={index}
+                         prenom={profil.pr_prenom}
+                         nom={profil.pr_nom}
+                         description={profil.pr_description}
+                         imageUrl={profil.pr_imgprofil}
+                         role={profil.id_role}
+                         entreprise={profil.pr_entreprise} 
+                     />
                     ))}
                 </div>
             </div>
