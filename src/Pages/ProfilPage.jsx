@@ -212,7 +212,9 @@ const ProfilPage = () => {
     }
   };
 
+
   console.log(profil)
+  
   
   return (
     <>
