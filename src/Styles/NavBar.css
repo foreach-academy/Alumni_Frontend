@@ -17,6 +17,7 @@
     width: 100%;
     background-attachment: fixed;
     top: 0;
+    z-index: 1;
 }
 
 .navigation_navbar:hover{
@@ -28,4 +29,7 @@
     display: flex;
     gap: 40px;
     align-items: end;
+}
+.logo{
+    width: 100px;
 }

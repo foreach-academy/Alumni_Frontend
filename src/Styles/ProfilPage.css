@@ -1,104 +1,115 @@
 .page_profil{
-    padding-top: 120px;
-    background: linear-gradient(to top, #4A84A0, #D89952);
-    min-height: calc(100vh - 100px);
+  padding-top: 10%;
+  background: linear-gradient(to top, #4A84A0, #D89952);
+  min-height: calc(100vh - 100px);
+  padding-bottom: 5%;
 }
 
 .text_bienvenue{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   position: absolute;
-  top: 45%;
+  top: 25%;
   margin-left: 70px;
-  width: 20%;
+  margin-top: 100px;
+  width: 30%;
   font-size: larger;
 }
 
 .espace_alumni{
   color: rgb(42, 45, 67);
-  
+  margin-left: 30px;
 }
 
 .content_profil {
-  padding: 20px;
   box-sizing: border-box;
   padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  transform: translateX(60%);
+  background-color: rgba(255, 255, 255, 0.205);
+  border-radius: 10%;
   }
   
-  .header-title {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom: 10px;
-    margin-left: 600px;
-    }
+.header-title {
+  margin-bottom: 10px;
+  margin-left: 5%;
+  padding-top: 20px;
+  font-size: x-large;
+  }
 
-  .header-title h1 {
-    flex: 0 0 30%; 
-    margin: 0;
-  }
+.header-title h1 {
+  flex: 0 0 30%; 
+  margin: 0;
+}
 
-  .info-group {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .liste_info {
-    width: 20%;
-    margin: 0px;
-    margin-left: 600px;
-  }
-  
-  .input_profil {
-    width: 20%; 
-    padding: 2px;
-    margin-left: 10px; 
-    box-sizing: border-box;
-    margin-right: 200px;
-    vertical-align: middle;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    border-radius: 7px;
-    border: 2px solid black;
-    background-color: rgb(219, 219, 219);
-  }
-  
+.info-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.info-group select {
+  -webkit-appearance: none; /* Chrome, Safari, Edge */
+  -moz-appearance: none; /* Firefox */
+  appearance: none;
+  background: url('../Assets/flèche_rose_select.svg') no-repeat right center;
+  background-position: calc(100% - 10px) center; /* Ajuster la position de la flèche */
+  border-radius: 4px; 
+  padding: 7px;
+  border: 1px solid black;
+  background-color: rgb(219, 219, 219);
+}
+
+.liste_info {
+  width: 30%;
+  margin: 0px;
+  margin-left: 5%;
+  font-size: small;
+}
+
+.input_profil {
+  width: 45%; 
+  padding: 2px;
+  margin: 10px; 
+  margin-right: 5%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+::placeholder {
+  color: black; 
+}
 
 .boutton_page_profil{
-    display: flex;
-    justify-content: end;
-    max-width: 70%;
+  display: flex;
+  justify-content: end;
+  max-width: 70%;
 }
 
 .boutton_modifier_profil{
-    margin-top: 20px;
-    padding: 10px 20px;
-    border-radius: 7px;
-    background-color: rgb(44, 186, 162);
-    border: none;
-    font-weight: bold;
-    letter-spacing: 2px;
-    cursor: pointer;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 7px;
+  background-color: rgb(44, 186, 162);
+  border: none;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
 }
  
 .boutton_modifier_profil:hover {
   filter: brightness(75%);
 }
-.text_bienvenue {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centrer le contenu horizontalement */
-  position: absolute;
-  top: 45%;
-  width: 40%; /* Prendre toute la largeur disponible */
-  font-size: larger;
-}
+
 
 .info_image {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centrer le contenu horizontalement */
+  align-items: center; 
 }
 
 .profile-image {
@@ -108,4 +119,19 @@
   margin-bottom: 10px; /* Espacement entre l'image et le formulaire */
 }
 
+.info_image img{
+  object-fit: cover;
+  transform: translateX(-50px);
+}
 
+input[type="file"]::file-selector-button {
+  background-color: transparent; 
+  /* color: white; */
+  border: none;
+  box-shadow: 1px 2px 2px gray;
+  border-radius: 4px;
+  cursor: pointer; 
+}
+input[type="file"]::file-selector-button:hover {
+  color: rgb(219, 219, 219);
+}
