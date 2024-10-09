@@ -19,18 +19,18 @@ class ProfilCompetenceService {
     async getCompetenceById(id_profil) {
         try {
             const response = await axios.get(`${API_URL}/profil_competence/${id_profil}`);
-            return response.data; // Retourne la compétence
+            return response.data;
         } catch (error) {
             console.error(`Erreur lors de la récupération de la compétence pour le profil ${id_profil}:`, error);
             throw error;
         }
     }
 
-    // Ajouter une nouvelle compétence à un profil
-    async addCompetence(id_profil, id_competence) {
+
+    async addProfilCompetence(id_profil, id_competence) {
         try {
-            const response = await axios.post(`${API_URL}/profil_competence`, { id_profil, id_competence });
-            return response.data; // Retourne la compétence ajoutée
+            const response = await axios.post(`http://127.0.0.1:3006/profil_competence`, { id_profil, id_competence });
+            return response.data;
         } catch (error) {
             console.error(`Erreur lors de l'ajout de la compétence pour le profil ${id_profil}:`, error);
             throw error;
@@ -38,9 +38,9 @@ class ProfilCompetenceService {
     }
 
     // Mettre à jour une compétence spécifique
-    async updateCompetence(id_competence, competenceData) {
+    async updateProfilCompetence(id_competence, competenceData) {
         try {
-            const response = await axios.put(`${API_URL}/profil_competence ${id_competence}`, competenceData);
+            const response = await axios.patch(`${API_URL}/profil_competence/${id_competence}`, competenceData);
             return response.data; // Retourne la compétence mise à jour
         } catch (error) {
             console.error(`Erreur lors de la mise à jour de la compétence ${id_competence}:`, error);

@@ -31,7 +31,7 @@ class ProfilAideService {
     async addProfilAide(profilAideData) {
         try {
             const response = await axios.post(API_URL, profilAideData);
-            return response.data; // Retourne les données de la réponse
+            return response.data; 
         } catch (error) {
             console.error('Erreur lors de l\'ajout de l\'association Profil-Aide:', error);
             throw error; // Propager l'erreur pour la gestion dans le composant

@@ -22,9 +22,14 @@
 }
 
 .content_profil {
-  padding: 20px;
   box-sizing: border-box;
   padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  transform: translateX(60%);
+  background-color: rgba(255, 255, 255, 0.205);
+  border-radius: 10%;
   }
   
 .header-title {
@@ -86,33 +91,25 @@
 }
 
 .boutton_modifier_profil{
-    margin-top: 20px;
-    padding: 10px 20px;
-    border-radius: 7px;
-    background-color: rgb(44, 186, 162);
-    border: none;
-    font-weight: bold;
-    letter-spacing: 2px;
-    cursor: pointer;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 7px;
+  background-color: rgb(44, 186, 162);
+  border: none;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
 }
  
 .boutton_modifier_profil:hover {
   filter: brightness(75%);
 }
-.text_bienvenue {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centrer le contenu horizontalement */
-  position: absolute;
-  top: 45%;
-  width: 40%; /* Prendre toute la largeur disponible */
-  font-size: larger;
-}
+
 
 .info_image {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centrer le contenu horizontalement */
+  align-items: center; 
 }
 
 .profile-image {
@@ -122,4 +119,19 @@
   margin-bottom: 10px; /* Espacement entre l'image et le formulaire */
 }
 
+.info_image img{
+  object-fit: cover;
+  transform: translateX(-50px);
+}
 
+input[type="file"]::file-selector-button {
+  background-color: transparent; 
+  /* color: white; */
+  border: none;
+  box-shadow: 1px 2px 2px gray;
+  border-radius: 4px;
+  cursor: pointer; 
+}
+input[type="file"]::file-selector-button:hover {
+  color: rgb(219, 219, 219);
+}
