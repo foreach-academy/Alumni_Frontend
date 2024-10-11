@@ -14,6 +14,7 @@ import ProfilPage from './Pages/ProfilPage'
 import AuthContext from './Contexts/AuthContext';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import EditProfilPage from './Pages/editProfilPage';
 
 
 
@@ -43,6 +44,7 @@ function App() {
           <Route path='/profil' element={<ProfilPage />} />
           <Route path='/validation_compte' element={<ValidationComptePage />} />
           <Route path='/page_annuaire' element={<AnnuairePage />} />
+          <Route path='/edit_profil_page' element={<EditProfilPage />} />
         </Routes>
         <ToastContainer />
         <Footer />

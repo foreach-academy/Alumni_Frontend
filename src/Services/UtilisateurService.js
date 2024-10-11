@@ -12,7 +12,7 @@ class UtilisateurService{
         if (token) {
             try {
                 const decodedToken = jwtDecode(token);
-                console.log("Token décodé :", decodedToken); // Voir le contenu du token
+                // console.log("Token décodé :", decodedToken); // Voir le contenu du token
                 return decodedToken.id_utilisateur || decodedToken.id;
             } catch (error) {
                 console.error("Erreur lors du décodage du token :", error);

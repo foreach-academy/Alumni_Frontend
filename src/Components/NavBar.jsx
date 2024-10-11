@@ -3,7 +3,7 @@ import '../Styles/NavBar.css'
 import AuthContext from '../Contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import LOGO from "../Assets/logo_foreach_couleur_horizontal.png"
+import LOGO from "../Assets/ForEach_hor_white_2.png"
 
 const NavBar = () => {
     const {isAuthenticated, setIsAuthenticated, setToken} = useContext(AuthContext);
@@ -30,7 +30,7 @@ const NavBar = () => {
                 <p className='navigation_navbar' onClick={() => {navigateTo("/offres_stage_emploi")}}>OFFRES STAGE/EMPLOI</p>
                 <p className='navigation_navbar' onClick={() => {navigateTo("/profil")}}>EVENEMENTS</p>
                 <p className='navigation_navbar'>CONTACTS</p>
-                <p className='navigation_navbar'>A PROPOS</p>
+                <p className='navigation_navbar' onClick={() => {navigateTo("/edit_profil_page")}}>A PROPOS</p>
 
                     <div className='profil_logout_button'>
                         <p className='navigation_navbar' onClick={() => {navigateTo("/profil")}}>PROFIL</p>

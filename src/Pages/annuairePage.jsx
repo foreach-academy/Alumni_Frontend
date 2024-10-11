@@ -45,7 +45,7 @@ const AnnuairePage = () => {
                          prenom={profil.pr_prenom}
                          nom={profil.pr_nom}
                          description={profil.pr_description}
-                         imageUrl={profil.pr_imgprofil}
+                         imageUrl={`http://127.0.0.1:3006/${profil.pr_imgprofil}`}
                          role={profil.id_role}
                          entreprise={profil.pr_entreprise} 
                      />

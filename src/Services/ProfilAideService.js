@@ -72,7 +72,7 @@ class ProfilAideService {
     // Récupérer les associations Profil-Aide par ID de profil
     async getProfilAideByProfilId(id_profil) {
         try {
-            const response = await axios.get(`http://127.0.0.1:3006/profils/${id_profil}/profil_aide`);
+            const response = await axios.get(`http://127.0.0.1:3006/profil/${id_profil}/profil_aide`);
             return response.data; // Retourne les données de la réponse
         } catch (error) {
             console.error(`Erreur lors de la récupération de Profil-Aide pour l'ID de profil ${id_profil}:`, error);

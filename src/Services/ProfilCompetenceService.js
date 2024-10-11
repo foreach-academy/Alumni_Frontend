@@ -11,7 +11,7 @@ class ProfilCompetenceService {
             return response.data; // Retourne la liste des compétences
         } catch (error) {
             console.error('Erreur lors de la récupération des compétences:', error);
-            throw error; // Propager l'erreur pour la gestion dans le composant
+            throw error; 
         }
     }
 
@@ -41,7 +41,7 @@ class ProfilCompetenceService {
     async updateProfilCompetence(id_competence, competenceData) {
         try {
             const response = await axios.patch(`${API_URL}/profil_competence/${id_competence}`, competenceData);
-            return response.data; // Retourne la compétence mise à jour
+            return response.data; 
         } catch (error) {
             console.error(`Erreur lors de la mise à jour de la compétence ${id_competence}:`, error);
             throw error;
@@ -62,7 +62,7 @@ class ProfilCompetenceService {
     // Récupérer toutes les compétences d'un profil spécifique
     async getCompetencesByProfilId(id_profil) {
         try {
-            const response = await axios.get(`${API_URL}/profils/${id_profil}/profil_competence`);
+            const response = await axios.get(`${API_URL}/profil/${id_profil}/profil_competence`);
             return response.data; // Retourne les compétences du profil
         } catch (error) {
             console.error(`Erreur lors de la récupération des compétences pour le profil ${id_profil}:`, error);

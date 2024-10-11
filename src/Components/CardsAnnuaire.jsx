@@ -20,7 +20,7 @@ const CardsAnnuaire = ({prenom,nom,description,imageUrl,role,entreprise}) => {
     return <>
 
     <div className="profil-card" style={{ backgroundColor }}>
-            <img src={imgprofil2} alt={`${nom} photo`} className='profil_image' /> 
+            <img src={imageUrl} alt={`${nom} photo`} className='profil_image' /> 
             <div className='profil-card-text'>
                 <h4>{prenom} {nom}</h4>
                 <p>{description} chez</p>
