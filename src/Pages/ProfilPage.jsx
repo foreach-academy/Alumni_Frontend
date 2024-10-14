@@ -530,14 +530,14 @@ const toggleEditMode = () => {
                   <input
                     type="text"
                     name="entreprise"
-                    placeholder={profil.id_profil && profil.id_profil.pr_ebtreprise ? profil.id_profil.pr_ebtreprise : "Entreprise"}
+                    placeholder={profil.id_profil && profil.id_profil.pr_entreprise ? profil.id_profil.pr_entreprise : "Entreprise"}
                     onChange={(e) => {
                       setProfil({ ...profil, pr_entreprise: e.target.value });
                     }}
                     className="input_profil"
                   />
                 ):(
-                  <p className="input_profil_affichage">{profil.id_profil && profil.id_profil.pr_ebtreprise ? profil.id_profil.pr_ebtreprise : "Entreprise"}</p>
+                  <p className="input_profil_affichage">{profil.id_profil && profil.id_profil.pr_entreprise ? profil.id_profil.pr_entreprise : "Entreprise"}</p>
                 )}
               </div>
             </div>
@@ -653,7 +653,7 @@ const toggleEditMode = () => {
                   <input
                     type="text"
                     name="recherche"
-                    placeholder={ profil.id_profil && profil.id_profil.pr_recherche ? profil.id_profil.pr_recherche :"stage, alternance, premier emploi, emploi ?"}
+                    placeholder={ profil.id_profil && profil.id_profil.recherche ? profil.id_profil.recherche :"stage, alternance, premier emploi, emploi ?"}
                     onChange={(e) => {
                       setProfil({ ...profil, recherche: e.target.value });
                     }}
@@ -663,7 +663,7 @@ const toggleEditMode = () => {
                 ):(
                   <>
                   <p className="liste_info">Recherche</p>
-                  <p className="input_profil_affichage">{profil.id_profil && profil.id_profil.pr_recherche ? profil.id_profil.pr_recherche : "Recherche"}</p>
+                  <p className="input_profil_affichage">{profil.id_profil && profil.id_profil.recherche ? profil.id_profil.recherche : "Recherche"}</p>
                   </>
                 )}
               </div>
