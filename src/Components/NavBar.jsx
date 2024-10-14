@@ -30,7 +30,7 @@ const NavBar = () => {
                 <p className='navigation_navbar' onClick={() => {navigateTo("/offres_stage_emploi")}}>OFFRES STAGE/EMPLOI</p>
                 <p className='navigation_navbar' onClick={() => {navigateTo("/profil")}}>EVENEMENTS</p>
                 <p className='navigation_navbar'>CONTACTS</p>
-                <p className='navigation_navbar' onClick={() => {navigateTo("/edit_profil_page")}}>A PROPOS</p>
+                <p className='navigation_navbar' onClick={() => {navigateTo("")}}>A PROPOS</p>
 
                     <div className='profil_logout_button'>
                         <p className='navigation_navbar' onClick={() => {navigateTo("/profil")}}>PROFIL</p>

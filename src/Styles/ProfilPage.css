@@ -54,11 +54,11 @@
   -moz-appearance: none; /* Firefox */
   appearance: none;
   background: url('../Assets/flèche_rose_select.svg') no-repeat right center;
-  background-position: calc(100% - 10px) center; /* Ajuster la position de la flèche */
-  border-radius: 4px; 
-  padding: 7px;
+  background-position: calc(100% - 10px) center; 
+  border-radius: 8px; 
+  padding: 11px;
   border: 1px solid black;
-  background-color: rgb(219, 219, 219);
+  background-color: rgba(255, 255, 255, 0.562);
 }
 
 .liste_info {
@@ -78,6 +78,7 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+  font-size: small;
 }
 
 ::placeholder {
@@ -88,9 +89,11 @@
   display: flex;
   justify-content: end;
   max-width: 70%;
+  gap: 20px;
 }
 
 .boutton_modifier_profil{
+  margin-right: 9%;
   margin-top: 20px;
   padding: 10px 20px;
   border-radius: 7px;
@@ -100,11 +103,24 @@
   letter-spacing: 2px;
   cursor: pointer;
 }
+.boutton_annuler{
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 7px;
+  background-color:rgba(255, 255, 255, 0.308); 
+  color: rgb(186, 44, 77);
+  border: none;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
  
 .boutton_modifier_profil:hover {
   filter: brightness(75%);
 }
-
+.boutton_annuler:hover {
+  filter: brightness(75%);
+}
 
 .info_image {
   display: flex;
@@ -113,15 +129,22 @@
 }
 
 .profile-image {
-  width: 200px; /* Ajustez la taille selon vos besoins */
-  height: 200px; /* Ajustez la taille selon vos besoins */
+  width: 200px; 
+  height: 200px; 
   border-radius: 50%;
-  margin-bottom: 10px; /* Espacement entre l'image et le formulaire */
+  margin-bottom: 10px;
+  box-shadow: rgb(68, 68, 68) 1px 4px 6px;
 }
 
 .info_image img{
   object-fit: cover;
   transform: translateX(-50px);
+}
+.info_image >.defaut{
+  object-fit: contain;
+  transform: translateX(-50px);
+  padding: 10px;
+  box-shadow: gray 1px 4px 6px;
 }
 
 input[type="file"]::file-selector-button {
@@ -134,4 +157,79 @@ input[type="file"]::file-selector-button {
 }
 input[type="file"]::file-selector-button:hover {
   color: rgb(219, 219, 219);
+}
+
+.affichage_container {
+  font-size: small;
+  display: flex;
+  gap: 5px;
+
+  width: 45%; 
+  padding: 0 5px ;
+  margin: 5px; 
+  margin-right: 5%;
+  box-sizing: border-box;
+  border: 1px solid black;
+  background-color: rgba(255, 255, 255, 0.402);
+  border-radius: 8px;
+}
+.affichage_item{
+  background-color: black;
+  color: white;
+  border-radius: 4px;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+.input_profil_affichage{
+  width: 45%; 
+  padding: 2px;
+  margin: 10px; 
+  margin-right: 5%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  background-color: transparent;
+  border: none;
+  font-size: small;
+}
+
+.input_profil_double {
+  width: 20%; 
+  padding: 2px;
+  margin: 10px; 
+  margin-right: 5%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: small;
+}
+.info-group-double {
+  display: flex;
+  align-items: center;
+}
+.liste_info_double {
+  width: 45%;
+  margin: 0px;
+  margin-left: 5%;
+  font-size: small;
+}
+
+.triangles{
+  display: flex;
+  flex-direction: column;
+  max-width: 15%;
+  position: absolute;
+  top: 25%;
+  gap: 5px;
+}
+.triangle1{
+  stroke: #cb48997a;
+}
+.triangle2{
+  stroke: #2cbaa281;
+}
+.triangle3{
+  stroke: rgba(245, 222, 179, 0.384);
 }
