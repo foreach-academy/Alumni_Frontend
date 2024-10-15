@@ -24,7 +24,8 @@ const EditProfilPage = () => {
     pr_tel: "",
     pr_imgprofil: "" ,
     recherche: "",
-    fun_fact : ""
+    fun_fact : "", 
+    id_utilisateur: ""
   });
   const [liens, setLiens] = useState({
     li_linkedin: "",
@@ -42,6 +43,10 @@ const EditProfilPage = () => {
     id_promotion: "",
     id_profil: ""
   });
+  const [utilisateur, setUtilisateur] = useState({
+    ut_email: "",
+    ut_motdepasse: ""
+  })
   
 
   const [profilAide, setProfilAide] = useState([]);
@@ -83,6 +88,7 @@ const EditProfilPage = () => {
         console.log(error);
       });
   };
+
   useEffect(() => {
     const fetchProfil = async () => {
       const utilisateur = UtilisateurService.getUtilisateurIdFromToken();
@@ -120,7 +126,6 @@ const EditProfilPage = () => {
       if (profil?.id_profil?.id_profil) {
         try {
           const profilCompetences = await ProfilCompetenceService.getCompetencesByProfilId(profil?.id_profil?.id_profil);
-          console.log("Données competence récupérées:", profilCompetences); 
           setProfilCompetence(profilCompetences);
         } catch (error) {
           console.error("Erreur lors de la récupération des compétences:", error);
@@ -135,7 +140,6 @@ const EditProfilPage = () => {
       if (profil?.id_profil?.id_profil) {  
         try {
           const profilAide = await ProfilAideService.getProfilAideByProfilId(profil?.id_profil?.id_profil);
-          console.log("Données aide récupérées:", profilAide); 
           setProfilAide(profilAide);  
         } catch (error) {
           console.error("Erreur lors de la récupération des aides:", error);
@@ -150,9 +154,7 @@ useEffect(() => {
   const fetchParcours = async () => {
       if (profil?.id_profil?.id_profil) {  
           try {
-              const parcoursData = await ParcoursService.getParcoursByProfilId(profil.id_profil.id_profil);
-              console.log("Données parcours récupérées:", parcoursData); 
-              
+              const parcoursData = await ParcoursService.getParcoursByProfilId(profil.id_profil.id_profil);              
               setParcours(Array.isArray(parcoursData) ? parcoursData : [parcoursData]);  
           } catch (error) {
               console.error("Erreur lors de la récupération des parcours:", error);
@@ -163,9 +165,26 @@ useEffect(() => {
   fetchParcours();
 }, [profil?.id_profil?.id_profil]);
 
+useEffect(() => {
+  const fetchUtilisateur = async () => {
+    if (profil?.id_profil?.id_profil) {  
+      try {
+        const utilisateurData = await UtilisateurService.getUtilisateurByProfilId(profil?.id_profil?.id_profil);
+        setUtilisateur(utilisateurData);  
+      } catch (error) {
+        console.error("Erreur lors de la récupération des infos de l'utilisateur:", error);
+      }
+    }
+  };
+
+  fetchUtilisateur();
+}, [profil?.id_profil?.id_profil]);  
+
+
   const updateProfil = async () => {
     try {
         const profilId = profil.id_profil.id_profil; 
+        const utilisateurId = utilisateur.id_utilisateur;
         let profilUpdated = false; // Indicateur pour savoir si le profil a été mis à jour
 
         if (profilId) {
@@ -179,7 +198,8 @@ useEffect(() => {
                 pr_tel: profil.pr_tel,
                 pr_imgprofil: profil.pr_imgprofil,
                 recherche: profil.recherche,
-                fun_fact: profil.fun_fact
+                fun_fact: profil.fun_fact,
+                id_utilisateur: profil.id_utilisateur
             };
 
             // Vérifie si des mises à jour de profil de base ont eu lieu
@@ -206,9 +226,13 @@ useEffect(() => {
             await handleCompetenceChange(profilId); 
             await handleProfilAideChange(profilId); 
             await handleParcoursChange(profilId); 
+            await handleUtilisateurChange(utilisateurId); 
 
             if (profilUpdated) {
                 toast.success("Profil mis à jour avec succès !");
+
+                // Rechargement de la page après 5 secondes (5000 ms)
+                setTimeout(() => {window.location.reload();}, 5000);
             } else {
                 console.log("Aucune modification détectée dans le profil.");
             }
@@ -238,6 +262,8 @@ const handleLiensChange = async (profilId) => {
                     li_perso: liens.li_perso
                 });
                 toast.success("Lien mis à jour avec succès !");
+
+                setTimeout(() => {window.location.reload();}, 5000);
             } else {
                 console.log("Aucune modification détectée dans les liens.");
             }
@@ -267,9 +293,13 @@ const handleCompetenceChange = async (profilId) => {
         if (profilCompetence && profilCompetence.id_competence) {
             await ProfilCompetenceService.updateProfilCompetence(competenceData.id_profil, competenceData.id_competence);
             toast.success("Compétence mise à jour avec succès !");
+
+            setTimeout(() => {window.location.reload();}, 5000);
         } else {
             await ProfilCompetenceService.addProfilCompetence(competenceData.id_profil, competenceData.id_competence);
             toast.success("Compétence ajoutée au profil !");
+
+            setTimeout(() => {window.location.reload();}, 5000);
         }
     } catch (error) {
         console.error("Erreur lors de la mise à jour des compétences:", error);
@@ -286,9 +316,11 @@ const handleProfilAideChange = async (profilId) => {
         if (profilAide && profilAide.id_profil_aide) {
             await ProfilAideService.updateProfilAide(profilAide.id_profil_aide, profilAideData);
             toast.success("Aide mise à jour avec succès !");
+            setTimeout(() => {window.location.reload();}, 5000);
         } else if (profil.selectedTypeAide) {
             const response = await ProfilAideService.addProfilAide(profilAideData);
             toast.success("Nouvelle aide ajoutée avec succès !");
+            setTimeout(() => {window.location.reload();}, 5000);
         }
     } catch (error) {
         console.error("Erreur lors de la mise à jour de l'aide:", error);
@@ -316,6 +348,7 @@ const handleParcoursChange = async (profilId) => {
       if (hasParcoursChanged) {
         await ParcoursService.updateParcours(currentParcours.id_parcours, parcoursData);
         toast.success("Parcours mis à jour avec succès !");
+        setTimeout(() => {window.location.reload();}, 5000);
       } else {
         console.log("Aucune modification détectée dans le parcours.");
       }
@@ -324,6 +357,33 @@ const handleParcoursChange = async (profilId) => {
     console.error("Erreur lors de la mise à jour du parcours:", error);
   }
 };
+
+const handleUtilisateurChange = async (profilId) => {
+  try {
+    const utilisateurId = utilisateur.id_utilisateur;
+    const currentUtilisateur = await UtilisateurService.getUtilisateurByProfilId(profilId);
+    // Vérifie si les informations de l'utilisateur ont changé
+    const hasUtilisateurChanged =
+      currentUtilisateur.ut_email !== utilisateur.ut_email ||
+      currentUtilisateur.ut_motdepasse !== utilisateur.ut_motdepasse;
+
+    if (hasUtilisateurChanged) {
+      // Mise à jour des informations de l'utilisateur si elles ont changé
+      await UtilisateurService.updateUtilisateur(utilisateurId, {
+        ut_email: utilisateur.ut_email,
+        ut_motdepasse: utilisateur.ut_motdepasse
+      });
+      toast.success("Utilisateur mis à jour avec succès !");
+      setTimeout(() => {window.location.reload();}, 5000);
+    } else {
+      console.log("Aucune modification détectée dans les informations de l'utilisateur.");
+    }
+  } catch (error) {
+    console.error("Erreur lors de la mise à jour des informations de l'utilisateur :", error);
+    toast.error("Une erreur est survenue lors de la mise à jour de l'utilisateur.");
+  }
+};
+
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -628,7 +688,7 @@ const toggleEditMode = () => {
             </div>
             <div className="info">
               <div className="info-group">
-                <p className="liste_info">Mail perso / Numéro de téléphone</p>
+                <p className="liste_info">Numéro de téléphone</p>
                 {isEditing ?(
                   <input
                     type="text"
@@ -641,6 +701,24 @@ const toggleEditMode = () => {
                   />
                 ):(  
                   <p className="input_profil_affichage">{profil.id_profil && profil.id_profil.pr_tel ? profil.id_profil.pr_tel : "Numéro/Email"}</p>
+                )}
+              </div>
+            </div>
+            <div className="info">
+              <div className="info-group">
+                <p className="liste_info">Email perso</p>
+                {isEditing ? (
+                  <input
+                    type="text"
+                    name="utemail"
+                    placeholder={utilisateur?.ut_email || "Email"}
+                    onChange={(e) => {
+                      setUtilisateur({ ...utilisateur, ut_email: e.target.value }); 
+                    }}
+                    className="input_profil"
+                  />
+                ) : (
+                  <p className="input_profil_affichage">{utilisateur?.ut_email || "Email"} </p>
                 )}
               </div>
             </div>

@@ -7,7 +7,7 @@ class ParcoursService {
   async getParcoursByProfilId(profilId) {
     try {
       const response = await axios.get(`${API_URL}/profil/${profilId}`);
-      return response.data; // Retourne les données du parcours récupéré
+      return response.data; 
     } catch (error) {
       console.error("Erreur lors de la récupération du parcours:", error);
       throw error;
@@ -18,7 +18,7 @@ class ParcoursService {
   async updateParcours(parcoursId, parcoursData) {
     try {
       const response = await axios.patch(`${API_URL}/${parcoursId}`, parcoursData);
-      return response; // Retourne la réponse de mise à jour
+      return response; 
     } catch (error) {
       console.error("Erreur lors de la mise à jour du parcours:", error);
       throw error;
@@ -26,5 +26,4 @@ class ParcoursService {
   }
 }
 
-// On exporte une instance de la classe
 export default new ParcoursService();

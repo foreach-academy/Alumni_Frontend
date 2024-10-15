@@ -18,7 +18,6 @@ class LiensService {
   }
 
   static createLien(id, data) {
-    console.log("ID passé à la création du lien:", id); 
     return axios.post(`http://127.0.0.1:3006/profils/${id}/liens`, data); 
   }
   

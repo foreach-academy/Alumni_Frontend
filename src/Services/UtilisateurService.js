@@ -21,6 +21,26 @@ class UtilisateurService{
         }
         return null;
     }
-}
+
+    static async getUtilisateurByProfilId(profilId) {  
+        try {
+            const response = await axios.get(`http://127.0.0.1:3006/utilisateur/profil/${profilId}`);
+            return response.data; 
+        } catch (error) {
+            console.error("Erreur lors de la récupération des infos utilisateur:", error);
+            throw error;
+        }
+    }
+    
+    static async updateUtilisateur(idUtilisateur, utilisateurData) {  
+        try {
+            const response = await axios.patch("http://127.0.0.1:3006/utilisateur/" + idUtilisateur, utilisateurData);
+            return response.data; 
+        } catch (error) {
+            console.error("Erreur lors de la mise à jour des infos utilisateur:", error);
+            throw error;
+        }
+    }
+};
 
 export default UtilisateurService;
